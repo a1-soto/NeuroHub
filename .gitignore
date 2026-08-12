@@ -1,0 +1,36 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Claude Code — machine-specific config and state, not the worklog automation
+# (.claude/settings.json + .claude/hooks/ ARE tracked — they're what keeps
+# WORKLOG.md self-updating on any machine this repo is cloned to)
+.claude/settings.local.json
+.claude/.worklog-*
+.remember/
+
+# Environment variables
+.env
+.env.*
+!.env.example
