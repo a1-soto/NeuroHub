@@ -1,0 +1,102 @@
+/* ===== DESIGN TOKENS ===== */
+/* Ported from the validated HTML prototype (neurohub-prototype.html) — see ARCHITECTURE.md */
+:root {
+    --primary-blue: #2874b8;
+    --primary-blue-dark: #1d5687;
+    --ink: #121212;
+    --text-secondary: #353434;
+    --bg-wash: #e8edf0;
+    --wash: #e5ebf1;
+    --card-bg: #f4f6f8;
+    --accent-light: #8cbbde;
+    --neutral-placeholder: #d9d9d9;
+    --white: #ffffff;
+    --page-bg: #fafbfc;
+
+    --font-heading: 'Lexend', sans-serif;
+    --font-body: 'Atkinson Hyperlegible', sans-serif;
+
+    --text-scale: 1;
+    --line-height-body: 1.6;
+    --motion: 0.2s;
+}
+
+html[data-text-size='-1'] {
+    --text-scale: 0.9;
+}
+html[data-text-size='0'] {
+    --text-scale: 1;
+}
+html[data-text-size='1'] {
+    --text-scale: 1.15;
+}
+html[data-text-size='2'] {
+    --text-scale: 1.3;
+}
+
+html[data-line-height='normal'] {
+    --line-height-body: 1.5;
+}
+html[data-line-height='amplio'] {
+    --line-height-body: 1.8;
+}
+html[data-line-height='espaciado'] {
+    --line-height-body: 2.1;
+}
+
+html[data-reduced-motion='true'] * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+}
+
+html[data-bajo-estimulo='true'] {
+    --primary-blue: #3e6e8e;
+    --accent-light: #b7cbd8;
+}
+
+html[data-color-theme='sepia'] {
+    --page-bg: #fbf6ec;
+    --card-bg: #fdf8ef;
+    --bg-wash: #f3e9d6;
+    --ink: #2e2415;
+    --text-secondary: #4a3d28;
+}
+
+/* ===== BASE ===== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--page-bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: calc(16px * var(--text-scale));
+    line-height: var(--line-height-body);
+    transition:
+        background var(--motion),
+        color var(--motion);
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+    color: var(--ink);
+    text-wrap: balance;
+    margin: 0;
+}
+
+a {
+    color: inherit;
+}
+img {
+    max-width: 100%;
+    display: block;
+}
+
+#root {
+    min-height: 100svh;
+}
