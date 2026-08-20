@@ -1,5 +1,11 @@
+import Hero from '../components/Hero/Hero';
+
 function InicioPage() {
-    return null;
+    return (
+        <>
+            <Hero />
+        </>
+    );
 }
 
 export default InicioPage;

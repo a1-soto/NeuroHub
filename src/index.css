@@ -1,5 +1,4 @@
 /* ===== DESIGN TOKENS ===== */
-/* Ported from the validated HTML prototype (neurohub-prototype.html) — see ARCHITECTURE.md */
 :root {
     --primary-blue: #2874b8;
     --primary-blue-dark: #1d5687;
@@ -68,6 +67,11 @@ html[data-color-theme='sepia'] {
     box-sizing: border-box;
 }
 
+html {
+    /* default; html[data-reduced-motion='true'] above overrides back to auto */
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     background: var(--page-bg);
@@ -89,6 +93,15 @@ h3 {
     margin: 0;
 }
 
+p,
+ul,
+ol,
+dl,
+figure,
+blockquote {
+    margin: 0;
+}
+
 a {
     color: inherit;
 }
@@ -97,6 +110,66 @@ img {
     display: block;
 }
 
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+:focus-visible {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+}
+
 #root {
     min-height: 100svh;
+}
+
+main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px 40px;
+}
+
+.btn {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 15px;
+    padding: 13px 22px;
+    border-radius: 30px;
+    border: 1.5px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+    transition:
+        background var(--motion),
+        color var(--motion),
+        border-color var(--motion),
+        transform var(--motion);
+}
+.btn:active {
+    transform: translateY(1px);
+}
+.btn--primary {
+    background: var(--white);
+    color: var(--primary-blue);
+}
+.btn--outline-white {
+    background: transparent;
+    color: var(--white);
+    border-color: var(--white);
+}
+.btn--primary:hover,
+.btn--outline-white:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--white);
+    border-color: var(--white);
 }

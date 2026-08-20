@@ -25,23 +25,25 @@ function App() {
     return (
         <AccesibilidadContext.Provider value={accesibilidad}>
             <BrowserRouter>
-                <Routes>
-                    <Route path="/" element={<InicioPage />} />
-                    <Route path="/noticias" element={<NoticiasPage />} />
-                    <Route path="/recursos" element={<RecursosPage />} />
-                    <Route path="/profesionales" element={<ProfesionalesPage />} />
-                    <Route path="/ayudas/*" element={<AyudasPage />} />
-                    <Route path="/curso" element={<CursoPage />} />
-                    <Route path="/blog" element={<BlogPage />} />
-                    <Route path="/contacto" element={<ContactoPage />} />
-                    <Route path="/donacion" element={<DonacionPage />} />
-                    <Route path="/testimonios" element={<TestimoniosPage />} />
-                    <Route path="/quienes-somos" element={<QuienesSomosPage />} />
-                    <Route path="/aviso-legal" element={<AvisoLegalPage />} />
-                    <Route path="/privacidad" element={<PrivacidadPage />} />
-                    <Route path="/condiciones" element={<CondicionesPage />} />
-                    <Route path="/cookies" element={<CookiesPage />} />
-                </Routes>
+                <main>
+                    <Routes>
+                        <Route path="/" element={<InicioPage />} />
+                        <Route path="/noticias" element={<NoticiasPage />} />
+                        <Route path="/recursos" element={<RecursosPage />} />
+                        <Route path="/profesionales" element={<ProfesionalesPage />} />
+                        <Route path="/ayudas/*" element={<AyudasPage />} />
+                        <Route path="/curso" element={<CursoPage />} />
+                        <Route path="/blog" element={<BlogPage />} />
+                        <Route path="/contacto" element={<ContactoPage />} />
+                        <Route path="/donacion" element={<DonacionPage />} />
+                        <Route path="/testimonios" element={<TestimoniosPage />} />
+                        <Route path="/quienes-somos" element={<QuienesSomosPage />} />
+                        <Route path="/aviso-legal" element={<AvisoLegalPage />} />
+                        <Route path="/privacidad" element={<PrivacidadPage />} />
+                        <Route path="/condiciones" element={<CondicionesPage />} />
+                        <Route path="/cookies" element={<CookiesPage />} />
+                    </Routes>
+                </main>
             </BrowserRouter>
         </AccesibilidadContext.Provider>
     );
