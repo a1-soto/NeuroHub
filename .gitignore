@@ -24,10 +24,7 @@ dist-ssr
 *.sln
 *.sw?
 
-# Claude Code — fully untracked as of 2026-08-21. .claude/settings.json + hooks/
-# now sync via claude-config-sync instead of being tracked here (see
-# DOCS_MIGRATION_PLAN.md in the config workspace) -- .gitignore doesn't need
-# per-file exceptions anymore, the whole folder is ignored.
+# Local tooling config, synced externally -- kept untracked here.
 .claude/
 .remember/
 
@@ -36,8 +33,7 @@ dist-ssr
 .env.*
 !.env.example
 
-# Process documentation — moved out to the private documentacion repo,
-# symlinked back here for local viewing (see DOCS_MIGRATION_PLAN.md)
+# Process documentation lives in a separate private repo, symlinked back here for local viewing.
 ARCHITECTURE.md
 CLAUDE.md
 MILESTONE_LOG.md
