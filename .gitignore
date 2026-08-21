@@ -24,25 +24,7 @@ dist-ssr
 *.sln
 *.sw?
 
-# Local tooling config, synced externally -- kept untracked here.
-.claude/
-.remember/
-
 # Environment variables
 .env
 .env.*
 !.env.example
-
-# Process documentation lives in a separate private repo, symlinked back here for local viewing.
-ARCHITECTURE.md
-CLAUDE.md
-MILESTONE_LOG.md
-WORKLOG.md
-TECH_LEARNING_LOG.md
-design-handoff.md
-discovery-brief.md
-discovery-brief.html
-discovery-brief.pdf
-page-specs.md
-typography-comparison.html
-Screenshoot vesion worpress
