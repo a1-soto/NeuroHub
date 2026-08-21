@@ -24,14 +24,29 @@ dist-ssr
 *.sln
 *.sw?
 
-# Claude Code — machine-specific config and state, not the worklog automation
-# (.claude/settings.json + .claude/hooks/ ARE tracked — they're what keeps
-# WORKLOG.md self-updating on any machine this repo is cloned to)
-.claude/settings.local.json
-.claude/.worklog-*
+# Claude Code — fully untracked as of 2026-08-21. .claude/settings.json + hooks/
+# now sync via claude-config-sync instead of being tracked here (see
+# DOCS_MIGRATION_PLAN.md in the config workspace) -- .gitignore doesn't need
+# per-file exceptions anymore, the whole folder is ignored.
+.claude/
 .remember/
 
 # Environment variables
 .env
 .env.*
 !.env.example
+
+# Process documentation — moved out to the private documentacion repo,
+# symlinked back here for local viewing (see DOCS_MIGRATION_PLAN.md)
+ARCHITECTURE.md
+CLAUDE.md
+MILESTONE_LOG.md
+WORKLOG.md
+TECH_LEARNING_LOG.md
+design-handoff.md
+discovery-brief.md
+discovery-brief.html
+discovery-brief.pdf
+page-specs.md
+typography-comparison.html
+Screenshoot vesion worpress/
