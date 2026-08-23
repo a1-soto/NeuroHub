@@ -68,4 +68,8 @@ html[data-bajo-estimulo='true'] .hero__image {
     .hero {
         grid-template-columns: 1fr;
     }
+
+    .hero__title {
+        font-size: calc(26px * var(--text-scale));
+    }
 }

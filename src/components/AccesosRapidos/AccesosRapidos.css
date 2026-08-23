@@ -101,6 +101,10 @@
 
 /* MEDIA QUERIES */
 @media (max-width: 900px) {
+    .quick-grid {
+        grid-template-columns: 1fr;
+    }
+
     .quick-card {
         padding: 16px;
         gap: 6px;

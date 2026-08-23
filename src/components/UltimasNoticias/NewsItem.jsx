@@ -11,7 +11,7 @@ function NewsItem({ title, source, org, date }) {
                 <div className="news-item__tag">
                     {source} · {org}
                 </div>
-                <h4 className="news-item__title">{title}</h4>
+                <h3 className="news-item__title">{title}</h3>
             </div>
             <div className="news-item__date">{formattedDate}</div>
         </div>
