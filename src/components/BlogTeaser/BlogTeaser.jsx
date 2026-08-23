@@ -16,7 +16,7 @@ function BlogTeaser() {
             <div className="panel-blue__head">
                 <h2 className="section-title">Blog</h2>
                 <Link to="/blog" className="btn btn--primary">
-                    Leer todas <ArrowRight strokeWidth={2.5} aria-hidden="true" />
+                    Leer todas <ArrowRight size={20} strokeWidth={3} aria-hidden="true" />
                 </Link>
             </div>
 

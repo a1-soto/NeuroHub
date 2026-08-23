@@ -22,7 +22,7 @@
 }
 
 .blog-teaser-card__tag {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 700;
     color: var(--primary-blue);
     text-transform: uppercase;
@@ -34,11 +34,11 @@
 
 .blog-teaser-card__excerpt {
     color: var(--text-secondary);
-    font-size: calc(15px * var(--text-scale));
+    font-size: calc(16px * var(--text-scale));
 }
 
 .blog-teaser-card__author {
-    font-size: 13px;
+    font-size: 14px;
     color: var(--text-secondary);
     margin-top: 10px;
 }

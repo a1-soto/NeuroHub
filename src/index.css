@@ -149,7 +149,7 @@ main {
 .btn {
     font-family: var(--font-heading);
     font-weight: 600;
-    font-size: 15px;
+    font-size: 16px;
     padding: 13px 22px;
     border-radius: 30px;
     border: 1.5px solid transparent;
@@ -193,7 +193,7 @@ main {
 
 .section-sub {
     color: var(--text-secondary);
-    font-size: calc(15px * var(--text-scale));
+    font-size: calc(16px * var(--text-scale));
     margin-bottom: 24px;
 }
 

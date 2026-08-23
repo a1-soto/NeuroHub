@@ -17,7 +17,7 @@ function UltimasNoticias() {
                     </p>
                 </div>
                 <Link to="/noticias" className="btn btn--primary">
-                    Leer todas <ArrowRight strokeWidth={3} aria-hidden="true" />
+                    Leer todas <ArrowRight size={20} strokeWidth={3} aria-hidden="true" />
                 </Link>
             </div>
             {ultimas.map((item) => (
