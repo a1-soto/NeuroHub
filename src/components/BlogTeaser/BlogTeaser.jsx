@@ -1,22 +1,20 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { blog } from '../../data/blog';
+import { formatDate } from '../../utils/formatDate';
 import './BlogTeaser.css';
 
 function BlogTeaser() {
     const [post] = blog;
-    const formattedDate = new Intl.DateTimeFormat('es-ES', {
-        day: '2-digit',
-        month: 'short',
-        year: 'numeric',
-    }).format(new Date(post.date));
+    const formattedDate = formatDate(post.date);
 
     return (
         <section className="panel-blue">
             <div className="panel-blue__head">
                 <h2 className="section-title">Blog</h2>
                 <Link to="/blog" className="btn btn--primary">
-                    Leer todas <ArrowRight size={20} strokeWidth={3} aria-hidden="true" />
+                    Leer todas
+                    <ArrowRight size={20} strokeWidth={3} aria-hidden="true" />
                 </Link>
             </div>
 

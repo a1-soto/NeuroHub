@@ -26,6 +26,7 @@
     font-weight: 700;
     color: var(--primary-blue);
     text-transform: uppercase;
+    letter-spacing: 0.03em;
 }
 
 .blog-teaser-card__title {

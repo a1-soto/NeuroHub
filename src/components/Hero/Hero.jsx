@@ -23,11 +23,11 @@ function Hero() {
                 </p>
                 <div className="hero__actions">
                     <Link to="/recursos" className="btn btn--primary">
-                        Explorar Recursos{' '}
+                        Explorar Recursos
                         <ArrowRight size={20} strokeWidth={3} aria-hidden="true" />
                     </Link>
                     <Link to="/profesionales" className="btn btn--outline-white">
-                        Buscar Especialistas{' '}
+                        Buscar Especialistas
                         <ArrowRight size={20} strokeWidth={3} aria-hidden="true" />
                     </Link>
                 </div>
