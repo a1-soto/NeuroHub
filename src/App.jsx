@@ -1,5 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AccesibilidadContext } from './context/AccesibilidadContext';
+
+import { useState, useEffect } from 'react';
+
+import Nav from './components/Nav/Nav';
 import InicioPage from './pages/InicioPage';
 import NoticiasPage from './pages/NoticiasPage';
 import RecursosPage from './pages/RecursosPage';
@@ -17,14 +21,44 @@ import CondicionesPage from './pages/CondicionesPage';
 import CookiesPage from './pages/CookiesPage';
 
 function App() {
+    const [bajoEstimulo, setBajoEstimulo] = useState(false);
+    const [movimientoReducido, setMovimientoReducido] = useState(false);
+    const [guiaLectura, setGuiaLectura] = useState(false);
+    const [tamañoTexto, setTamañoTexto] = useState(0);
+    const [interlineado, setInterlineado] = useState('normal');
+    const [temaColor, setTemaColor] = useState('neutral');
+
+    useEffect(() => {
+        document.documentElement.dataset.bajoEstimulo = bajoEstimulo;
+        document.documentElement.dataset.reducedMotion = movimientoReducido;
+        document.documentElement.dataset.textSize = tamañoTexto;
+        document.documentElement.dataset.lineHeight = interlineado;
+        if (temaColor === 'sepia') {
+            document.documentElement.dataset.colorTheme = 'sepia';
+        } else {
+            delete document.documentElement.dataset.colorTheme;
+        }
+    }, [bajoEstimulo, movimientoReducido, tamañoTexto, interlineado, temaColor]);
+
     const accesibilidad = {
-        // filled in during fe-build — bajoEstimulo, tamañoTexto, interlineado, temaColor,
-        // guiaLectura, movimientoReducido, plus their setters
+        bajoEstimulo,
+        setBajoEstimulo,
+        movimientoReducido,
+        setMovimientoReducido,
+        guiaLectura,
+        setGuiaLectura,
+        tamañoTexto,
+        setTamañoTexto,
+        interlineado,
+        setInterlineado,
+        temaColor,
+        setTemaColor,
     };
 
     return (
         <AccesibilidadContext.Provider value={accesibilidad}>
             <BrowserRouter>
+                <Nav />
                 <main>
                     <Routes>
                         <Route path="/" element={<InicioPage />} />

@@ -13,6 +13,8 @@
     --page-bg: #fafbfc;
 
     --border-subtle: #eceff1;
+    --border-nav: #e4e4e4;
+    --focus-nav: #ffb800;
 
     --overlay-white-soft: rgba(255, 255, 255, 0.15);
     --text-on-blue: rgba(255, 255, 255, 0.92);
