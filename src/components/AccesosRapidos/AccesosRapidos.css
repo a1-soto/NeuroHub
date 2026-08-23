@@ -1,5 +1,11 @@
 .accesos-rapidos {
     margin-top: 56px;
+    padding-left: 36px;
+    padding-right: 36px;
+}
+
+.accesos-rapidos .section-title {
+    margin-left: 6px;
 }
 
 .quick-grid {
