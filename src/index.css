@@ -22,6 +22,10 @@
     --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     --shadow-card-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.15), 0 4px 6px -2px rgba(0, 0, 0, 0.08);
 
+    --overlay-ink: rgba(18, 18, 18, 0.35);
+    --shadow-panel: -8px 0 24px rgba(0, 0, 0, 0.15);
+    --chip-selected-bg: #eaf2f9;
+
     --font-heading: 'Lexend', sans-serif;
     --font-body: 'Atkinson Hyperlegible', sans-serif;
 
