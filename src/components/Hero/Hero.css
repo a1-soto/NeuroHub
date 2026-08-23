@@ -6,6 +6,7 @@
     background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-dark));
     border-radius: 20px;
     padding: 48px;
+    margin-top: 56px;
 }
 
 .hero :focus-visible {

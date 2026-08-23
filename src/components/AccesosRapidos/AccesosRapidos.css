@@ -1,0 +1,111 @@
+.accesos-rapidos {
+    margin-top: 56px;
+}
+
+.quick-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.quick-card {
+    background-color: var(--white);
+    border: 1px solid var(--border-subtle);
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: box-shadow var(--motion);
+}
+
+.quick-card:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
+}
+
+.quick-card__icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--primary-blue);
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 6px;
+    color: var(--white);
+}
+
+.quick-card__icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.quick-card__title {
+    font-size: calc(19px * var(--text-scale));
+}
+
+.quick-card__description {
+    color: var(--text-secondary);
+    font-size: calc(14px * var(--text-scale));
+    flex: 1;
+}
+
+.quick-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary-blue);
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    align-self: flex-start;
+}
+
+.quick-card__link-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-blue);
+    transition:
+        background var(--motion),
+        color var(--motion),
+        border-color var(--motion);
+}
+
+.quick-card__link-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.quick-card__link:hover .quick-card__link-icon {
+    background: var(--primary-blue);
+    color: white;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 900px) {
+    .quick-card {
+        padding: 16px;
+        gap: 6px;
+    }
+
+    .quick-card__icon {
+        width: 36px;
+        height: 36px;
+    }
+
+    .quick-card__title {
+        font-size: calc(15px * var(--text-scale));
+    }
+
+    .quick-card__description {
+        font-size: calc(12px * var(--text-scale));
+    }
+}
