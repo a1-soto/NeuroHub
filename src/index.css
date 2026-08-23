@@ -196,3 +196,26 @@ main {
     font-size: calc(15px * var(--text-scale));
     margin-bottom: 24px;
 }
+
+.panel-blue {
+    background: var(--primary-blue);
+    border-radius: 20px;
+    padding: 36px;
+    color: var(--white);
+    margin-top: 56px;
+}
+.panel-blue__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+.panel-blue .section-title {
+    color: var(--white);
+}
+.panel-blue .section-sub {
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 0;
+}
