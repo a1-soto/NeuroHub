@@ -4,6 +4,7 @@ import { AccesibilidadContext } from './context/AccesibilidadContext';
 import { useState, useEffect } from 'react';
 
 import Nav from './components/Nav/Nav';
+import Footer from './components/Footer/Footer';
 import InicioPage from './pages/InicioPage';
 import NoticiasPage from './pages/NoticiasPage';
 import RecursosPage from './pages/RecursosPage';
@@ -78,6 +79,7 @@ function App() {
                         <Route path="/cookies" element={<CookiesPage />} />
                     </Routes>
                 </main>
+                <Footer />
             </BrowserRouter>
         </AccesibilidadContext.Provider>
     );
