@@ -26,6 +26,10 @@
     --shadow-panel: -8px 0 24px rgba(0, 0, 0, 0.15);
     --chip-selected-bg: #eaf2f9;
 
+    /* Same hue as --focus-nav (#ffb800) — chosen so it stays visible over the blue panel sections, unlike blue-on-blue */
+    --reading-guide-bg: rgba(255, 184, 0, 0.18);
+    --reading-guide-border: rgba(255, 184, 0, 0.55);
+
     --font-heading: 'Lexend', sans-serif;
     --font-body: 'Atkinson Hyperlegible', sans-serif;
 

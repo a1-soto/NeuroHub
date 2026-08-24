@@ -5,6 +5,9 @@ import { useState, useEffect } from 'react';
 
 import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
+
+import ReadingGuide from './components/ReadingGuide/ReadingGuide';
+
 import InicioPage from './pages/InicioPage';
 import NoticiasPage from './pages/NoticiasPage';
 import RecursosPage from './pages/RecursosPage';
@@ -34,12 +37,13 @@ function App() {
         document.documentElement.dataset.reducedMotion = movimientoReducido;
         document.documentElement.dataset.textSize = tamañoTexto;
         document.documentElement.dataset.lineHeight = interlineado;
+        document.documentElement.dataset.readingGuide = guiaLectura;
         if (temaColor === 'sepia') {
             document.documentElement.dataset.colorTheme = 'sepia';
         } else {
             delete document.documentElement.dataset.colorTheme;
         }
-    }, [bajoEstimulo, movimientoReducido, tamañoTexto, interlineado, temaColor]);
+    }, [bajoEstimulo, movimientoReducido, guiaLectura, tamañoTexto, interlineado, temaColor]);
 
     const accesibilidad = {
         bajoEstimulo,
@@ -80,6 +84,7 @@ function App() {
                     </Routes>
                 </main>
                 <Footer />
+                <ReadingGuide />
             </BrowserRouter>
         </AccesibilidadContext.Provider>
     );

@@ -1,0 +1,16 @@
+.reading-guide {
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 34px;
+    background: var(--reading-guide-bg);
+    border-top: 1px solid var(--reading-guide-border);
+    border-bottom: 1px solid var(--reading-guide-border);
+    pointer-events: none;
+    z-index: 999;
+    display: none;
+}
+
+html[data-reading-guide='true'] .reading-guide {
+    display: block;
+}
