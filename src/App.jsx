@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AccesibilidadContext } from './context/AccesibilidadContext';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 
 import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
@@ -38,27 +38,26 @@ function App() {
         document.documentElement.dataset.textSize = tamañoTexto;
         document.documentElement.dataset.lineHeight = interlineado;
         document.documentElement.dataset.readingGuide = guiaLectura;
-        if (temaColor === 'sepia') {
-            document.documentElement.dataset.colorTheme = 'sepia';
-        } else {
-            delete document.documentElement.dataset.colorTheme;
-        }
+        document.documentElement.dataset.colorTheme = temaColor;
     }, [bajoEstimulo, movimientoReducido, guiaLectura, tamañoTexto, interlineado, temaColor]);
 
-    const accesibilidad = {
-        bajoEstimulo,
-        setBajoEstimulo,
-        movimientoReducido,
-        setMovimientoReducido,
-        guiaLectura,
-        setGuiaLectura,
-        tamañoTexto,
-        setTamañoTexto,
-        interlineado,
-        setInterlineado,
-        temaColor,
-        setTemaColor,
-    };
+    const accesibilidad = useMemo(
+        () => ({
+            bajoEstimulo,
+            setBajoEstimulo,
+            movimientoReducido,
+            setMovimientoReducido,
+            guiaLectura,
+            setGuiaLectura,
+            tamañoTexto,
+            setTamañoTexto,
+            interlineado,
+            setInterlineado,
+            temaColor,
+            setTemaColor,
+        }),
+        [bajoEstimulo, movimientoReducido, guiaLectura, tamañoTexto, interlineado, temaColor]
+    );
 
     return (
         <AccesibilidadContext.Provider value={accesibilidad}>

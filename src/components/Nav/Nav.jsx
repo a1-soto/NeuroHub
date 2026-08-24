@@ -6,9 +6,22 @@ import AccesibilidadPanel from '../AccesibilidadPanel/AccesibilidadPanel';
 import NavDropdown from './NavDropdown';
 import './Nav.css';
 
+const RECURSOS_ITEMS = [
+    { label: 'Comunicación Aumentativa', to: '/recursos?categoria=comunicacion-aumentativa' },
+    { label: 'Lectura Fácil', to: '/recursos?categoria=lectura-facil' },
+    { label: 'TDAH y Dislexia', to: '/recursos?categoria=tdah-dislexia' },
+];
+
+const AYUDAS_ITEMS = [
+    { label: 'Madrid', to: '/ayudas/madrid' },
+    { label: 'Cataluña', to: '/ayudas/cataluna' },
+    { label: 'Andalucía', to: '/ayudas/andalucia' },
+];
+
 function Nav() {
-    const { bajoEstimulo, setBajoEstimulo } = useContext(AccesibilidadContext);
     const [panelOpen, setPanelOpen] = useState(false);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const { bajoEstimulo, setBajoEstimulo } = useContext(AccesibilidadContext);
 
     function toggleBajoEstimulo() {
         setBajoEstimulo(!bajoEstimulo);
@@ -21,8 +34,6 @@ function Nav() {
     function closePanel() {
         setPanelOpen(false);
     }
-
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     function toggleMobileMenu() {
         setMobileMenuOpen(!mobileMenuOpen);
@@ -40,29 +51,10 @@ function Nav() {
                 >
                     <NavLink to="/">Inicio</NavLink>
                     <NavLink to="/noticias">Noticias</NavLink>
-                    <NavDropdown
-                        label="Recursos"
-                        to="/recursos"
-                        items={[
-                            {
-                                label: 'Comunicación Aumentativa',
-                                to: '/recursos?categoria=comunicacion-aumentativa',
-                            },
-                            { label: 'Lectura Fácil', to: '/recursos?categoria=lectura-facil' },
-                            { label: 'TDAH y Dislexia', to: '/recursos?categoria=tdah-dislexia' },
-                        ]}
-                    />
+                    <NavDropdown label="Recursos" to="/recursos" items={RECURSOS_ITEMS} />
                     <NavLink to="/blog">Blog</NavLink>
                     <NavLink to="/profesionales">Profesionales</NavLink>
-                    <NavDropdown
-                        label="Ayudas"
-                        to="/ayudas"
-                        items={[
-                            { label: 'Madrid', to: '/ayudas/madrid' },
-                            { label: 'Cataluña', to: '/ayudas/cataluna' },
-                            { label: 'Andalucía', to: '/ayudas/andalucia' },
-                        ]}
-                    />
+                    <NavDropdown label="Ayudas" to="/ayudas" items={AYUDAS_ITEMS} />
                     <NavLink to="/curso">Curso</NavLink>
                     <NavLink to="/contacto">Contacto</NavLink>
                 </nav>
