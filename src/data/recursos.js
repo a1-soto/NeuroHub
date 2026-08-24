@@ -3,6 +3,7 @@ export const recursos = [
     {
         id: 1,
         name: 'ARASAAC',
+        tipo: 'Portal',
         description:
             'Sistema pictográfico de referencia en español, mantenido por el Gobierno de Aragón. Miles de pictogramas y materiales gratuitos para comunicación aumentativa y alternativa, y accesibilidad cognitiva en entornos públicos.',
         category: 'comunicacion-aumentativa',
@@ -12,6 +13,7 @@ export const recursos = [
     {
         id: 2,
         name: 'LetMeTalk',
+        tipo: 'App',
         description:
             'Comunicador visual gratuito para Android e iOS con más de 9.000 pictogramas de ARASAAC. Permite construir frases y reproducirlas por voz sintetizada, sin necesidad de conexión a internet.',
         category: 'comunicacion-aumentativa',
@@ -21,6 +23,7 @@ export const recursos = [
     {
         id: 3,
         name: 'Plena Inclusión — Comunicación Aumentativa y Alternativa',
+        tipo: 'Organización',
         description:
             'Guías y materiales sobre sistemas de comunicación aumentativa y alternativa (tableros, pictogramas, dispositivos), incluida una definición del concepto en formato de lectura fácil.',
         category: 'comunicacion-aumentativa',
@@ -32,6 +35,7 @@ export const recursos = [
     {
         id: 4,
         name: 'Asociación Lectura Fácil (ALF)',
+        tipo: 'Organización',
         description:
             'Entidad de referencia en España para la validación y promoción de la Lectura Fácil — un modo de escribir textos, pensado para personas con dificultades lectoras, que también coordina la Red Lectura Fácil entre asociaciones del territorio.',
         category: 'lectura-facil',
@@ -41,6 +45,7 @@ export const recursos = [
     {
         id: 5,
         name: 'Lectura Fácil Castilla y León',
+        tipo: 'Organización',
         description:
             'Delegación autonómica de la Red Lectura Fácil, con materiales y catálogo propio de libros y documentos adaptados a Lectura Fácil.',
         category: 'lectura-facil',
@@ -50,6 +55,7 @@ export const recursos = [
     {
         id: 6,
         name: 'ARASAAC — pictogramas aplicados a Lectura Fácil',
+        tipo: 'Portal',
         description:
             'El mismo banco de pictogramas de ARASAAC, usado específicamente como apoyo visual para simplificar y acompañar textos en Lectura Fácil.',
         category: 'lectura-facil',
@@ -61,6 +67,7 @@ export const recursos = [
     {
         id: 7,
         name: 'Autismo España',
+        tipo: 'Organización',
         description:
             'Confederación estatal de más de 30 años de trabajo y una red de entidades afiliadas en todo el territorio. Información, actualidad y recursos sobre autismo para personas autistas, familias y profesionales.',
         category: 'autismo',
@@ -70,6 +77,7 @@ export const recursos = [
     {
         id: 8,
         name: 'Fundación ConecTEA',
+        tipo: 'Organización',
         description:
             'Fundación dedicada a la investigación y divulgación sobre autismo, con formación y materiales orientados a comprender el comportamiento y las necesidades reales de las personas autistas.',
         category: 'autismo',
@@ -81,6 +89,7 @@ export const recursos = [
     {
         id: 9,
         name: 'FEAADAH — Federación Española de Asociaciones de TDAH',
+        tipo: 'Organización',
         description:
             'Federación estatal que agrupa asociaciones de TDAH en toda España. Información sobre el trastorno, orientación para familias y un directorio de asociaciones regionales.',
         category: 'tdah-dislexia',
@@ -90,6 +99,7 @@ export const recursos = [
     {
         id: 10,
         name: 'Fundación Adana',
+        tipo: 'Organización',
         description:
             'Fundación de Barcelona centrada en TDAH y otros trastornos del neurodesarrollo, con escuela de padres, grupos de ayuda mutua y programas educativos para familias.',
         category: 'tdah-dislexia',
@@ -99,6 +109,7 @@ export const recursos = [
     {
         id: 11,
         name: 'Plataforma Dislexia',
+        tipo: 'Portal',
         description:
             'Información en español sobre dislexia — qué es, cómo se detecta y qué apoyos existen — con datos de prevalencia y recursos orientados a familias y docentes.',
         category: 'tdah-dislexia',
@@ -110,6 +121,7 @@ export const recursos = [
     {
         id: 12,
         name: 'TeaEduca — El procesamiento sensorial en las personas autistas',
+        tipo: 'Formación',
         description:
             'Recurso formativo que explica qué es el perfil sensorial y cómo afecta el procesamiento sensorial a las personas autistas, con enfoque práctico para el entorno educativo.',
         category: 'procesamiento-sensorial',
@@ -119,6 +131,7 @@ export const recursos = [
     {
         id: 13,
         name: 'Campus Ángel Rivière — formación en procesamiento sensorial',
+        tipo: 'Formación',
         description:
             'Formación online de Autismo España dirigida a profesionales, centrada en comprender las necesidades sensoriales de las personas autistas más allá de la conducta observable.',
         category: 'procesamiento-sensorial',
@@ -130,6 +143,7 @@ export const recursos = [
     {
         id: 14,
         name: 'Programa Talentum',
+        tipo: 'Portal',
         description:
             'Recursos sobre altas capacidades, incluida la "doble excepcionalidad" — cuando coexisten con dificultades del aprendizaje, TDAH o autismo — un perfil frecuentemente pasado por alto.',
         category: 'altas-capacidades',
@@ -139,6 +153,7 @@ export const recursos = [
     {
         id: 15,
         name: 'Personas Excepcionales',
+        tipo: 'Portal',
         description:
             'Portal centrado en la doble excepcionalidad, con contenido específico sobre altas capacidades combinadas con desorden del procesamiento sensorial u otras condiciones.',
         category: 'altas-capacidades',
