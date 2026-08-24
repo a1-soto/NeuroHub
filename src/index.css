@@ -238,6 +238,6 @@ main {
     color: var(--white);
 }
 .panel-blue .section-sub {
-    color: var(--text-on-blue-muted);
+    color: var(--white);
     margin-bottom: 0;
 }

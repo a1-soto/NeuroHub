@@ -64,13 +64,23 @@ function Nav() {
                         className={`nav__a11y-btn ${bajoEstimulo ? 'nav__a11y-btn--active' : ''}`}
                         onClick={toggleBajoEstimulo}
                         aria-pressed={bajoEstimulo}
+                        aria-label="Bajo Estímulo"
                     >
                         <Sparkles aria-hidden="true" />
-                        <span className="nav__a11y-btn-label">Bajo Estímulo</span>
+                        <span className="nav__a11y-btn-label" aria-hidden="true">
+                            Bajo Estímulo
+                        </span>
                     </button>
-                    <button className="nav__a11y-btn" onClick={openPanel} aria-expanded={panelOpen}>
+                    <button
+                        className="nav__a11y-btn"
+                        onClick={openPanel}
+                        aria-expanded={panelOpen}
+                        aria-label="Ajustes UX"
+                    >
                         <SlidersHorizontal aria-hidden="true" />
-                        <span className="nav__a11y-btn-label">Ajustes UX</span>
+                        <span className="nav__a11y-btn-label" aria-hidden="true">
+                            Ajustes UX
+                        </span>
                     </button>
                 </div>
 

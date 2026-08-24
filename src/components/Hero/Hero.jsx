@@ -6,7 +6,7 @@ function Hero() {
     return (
         <section className="hero">
             <div className="hero__image">
-                <img src="https://picsum.photos/200" alt="" />
+                <img src="https://picsum.photos/200" alt="" fetchPriority="high" />
             </div>
 
             <div className="hero__content">
