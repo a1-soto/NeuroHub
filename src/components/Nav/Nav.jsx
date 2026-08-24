@@ -9,7 +9,10 @@ import './Nav.css';
 const RECURSOS_ITEMS = [
     { label: 'Comunicación Aumentativa', to: '/recursos?categoria=comunicacion-aumentativa' },
     { label: 'Lectura Fácil', to: '/recursos?categoria=lectura-facil' },
+    { label: 'Autismo', to: '/recursos?categoria=autismo' },
     { label: 'TDAH y Dislexia', to: '/recursos?categoria=tdah-dislexia' },
+    { label: 'Procesamiento Sensorial', to: '/recursos?categoria=procesamiento-sensorial' },
+    { label: 'Altas Capacidades', to: '/recursos?categoria=altas-capacidades' },
 ];
 
 const AYUDAS_ITEMS = [
