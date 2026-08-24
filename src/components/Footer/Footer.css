@@ -4,7 +4,6 @@
     padding-left: max(40px, calc((100% - 1400px) / 2 + 40px));
     padding-right: max(40px, calc((100% - 1400px) / 2 + 40px));
     background: var(--wash);
-    border-radius: 28px 28px 0 0;
 }
 
 .footer__grid {
