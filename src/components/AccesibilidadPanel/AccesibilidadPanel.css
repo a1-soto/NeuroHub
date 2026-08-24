@@ -136,7 +136,7 @@
 .a11y-panel__chip--selected {
     border-color: var(--primary-blue);
     background: var(--chip-selected-bg);
-    color: var(--primary-blue);
+    color: var(--primary-blue-dark);
     font-weight: 700;
 }
 
