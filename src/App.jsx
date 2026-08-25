@@ -8,21 +8,21 @@ import Footer from './components/Footer/Footer';
 
 import ReadingGuide from './components/ReadingGuide/ReadingGuide';
 
-import InicioPage from './pages/InicioPage';
-import NoticiasPage from './pages/NoticiasPage';
-import RecursosPage from './pages/RecursosPage';
-import ProfesionalesPage from './pages/ProfesionalesPage';
-import AyudasPage from './pages/AyudasPage';
-import CursoPage from './pages/CursoPage';
-import BlogPage from './pages/BlogPage';
-import ContactoPage from './pages/ContactoPage';
-import DonacionPage from './pages/DonacionPage';
-import TestimoniosPage from './pages/TestimoniosPage';
-import QuienesSomosPage from './pages/QuienesSomosPage';
-import AvisoLegalPage from './pages/AvisoLegalPage';
-import PrivacidadPage from './pages/PrivacidadPage';
-import CondicionesPage from './pages/CondicionesPage';
-import CookiesPage from './pages/CookiesPage';
+import InicioPage from './pages/InicioPage/InicioPage';
+import NoticiasPage from './pages/NoticiasPage/NoticiasPage';
+import RecursosPage from './pages/RecursosPage/RecursosPage';
+import ProfesionalesPage from './pages/ProfesionalesPage/ProfesionalesPage';
+import AyudasPage from './pages/AyudasPage/AyudasPage';
+import CursoPage from './pages/CursoPage/CursoPage';
+import BlogPage from './pages/BlogPage/BlogPage';
+import ContactoPage from './pages/ContactoPage/ContactoPage';
+import DonacionPage from './pages/DonacionPage/DonacionPage';
+import TestimoniosPage from './pages/TestimoniosPage/TestimoniosPage';
+import QuienesSomosPage from './pages/QuienesSomosPage/QuienesSomosPage';
+import AvisoLegalPage from './pages/AvisoLegalPage/AvisoLegalPage';
+import PrivacidadPage from './pages/PrivacidadPage/PrivacidadPage';
+import CondicionesPage from './pages/CondicionesPage/CondicionesPage';
+import CookiesPage from './pages/CookiesPage/CookiesPage';
 
 function App() {
     const [bajoEstimulo, setBajoEstimulo] = useState(false);
