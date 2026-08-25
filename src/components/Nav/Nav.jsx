@@ -1,5 +1,5 @@
-import { NavLink } from 'react-router-dom';
-import { useContext, useState } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
+import { useContext, useState, useEffect } from 'react';
 import { Sparkles, SlidersHorizontal, Menu, X } from 'lucide-react';
 import { AccesibilidadContext } from '../../context/AccesibilidadContext';
 import AccesibilidadPanel from '../AccesibilidadPanel/AccesibilidadPanel';
@@ -10,7 +10,8 @@ const RECURSOS_ITEMS = [
     { label: 'Comunicación Aumentativa', to: '/recursos?categoria=comunicacion-aumentativa' },
     { label: 'Lectura Fácil', to: '/recursos?categoria=lectura-facil' },
     { label: 'Autismo', to: '/recursos?categoria=autismo' },
-    { label: 'TDAH y Dislexia', to: '/recursos?categoria=tdah-dislexia' },
+    { label: 'TDAH', to: '/recursos?categoria=tdah' },
+    { label: 'Dislexia', to: '/recursos?categoria=dislexia' },
     { label: 'Procesamiento Sensorial', to: '/recursos?categoria=procesamiento-sensorial' },
     { label: 'Altas Capacidades', to: '/recursos?categoria=altas-capacidades' },
 ];
@@ -25,6 +26,11 @@ function Nav() {
     const [panelOpen, setPanelOpen] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const { bajoEstimulo, setBajoEstimulo } = useContext(AccesibilidadContext);
+    const location = useLocation();
+
+    useEffect(() => {
+        setMobileMenuOpen(false);
+    }, [location]);
 
     function toggleBajoEstimulo() {
         setBajoEstimulo(!bajoEstimulo);
