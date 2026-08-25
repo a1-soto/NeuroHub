@@ -62,21 +62,14 @@ describe('Nav', () => {
             'href',
             '/recursos?categoria=lectura-facil'
         );
-        // REVISAR: este assert todavía busca el link viejo 'TDAH y Dislexia' — esa
-        // categoría se separó en TDAH y Dislexia (dos ítems propios), así que ese
-        // link ya no existe en el dropdown y este test va a fallar.
-        // SOLUCIÓN: reemplazar por dos asserts, uno por cada categoría nueva:
-        //   expect(screen.getByRole('link', { name: 'TDAH' })).toHaveAttribute(
-        //       'href',
-        //       '/recursos?categoria=tdah'
-        //   );
-        //   expect(screen.getByRole('link', { name: 'Dislexia' })).toHaveAttribute(
-        //       'href',
-        //       '/recursos?categoria=dislexia'
-        //   );
-        expect(screen.getByRole('link', { name: 'TDAH y Dislexia' })).toHaveAttribute(
+
+        expect(screen.getByRole('link', { name: 'TDAH' })).toHaveAttribute(
             'href',
-            '/recursos?categoria=tdah-dislexia'
+            '/recursos?categoria=tdah'
+        );
+        expect(screen.getByRole('link', { name: 'Dislexia' })).toHaveAttribute(
+            'href',
+            '/recursos?categoria=dislexia'
         );
     });
 
