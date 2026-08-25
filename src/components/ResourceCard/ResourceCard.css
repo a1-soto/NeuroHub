@@ -1,0 +1,110 @@
+.resource-card {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.resource-card__icon {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    color: var(--primary-blue);
+}
+
+.resource-card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.resource-card__badge {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--primary-blue-dark);
+    background: var(--chip-selected-bg);
+    border-radius: 999px;
+    padding: 3px 10px;
+}
+
+.resource-card__eyebrow {
+    font-size: 12px;
+    font-weight: 400;
+    border-radius: 999px;
+    padding: 3px 10px;
+}
+
+/* One distinct color pair per category, so cards stay scannable at a glance —
+   same reasoning as Profesionales' specialty tags. */
+.resource-card__eyebrow--comunicacion-aumentativa {
+    color: #0f6e64;
+    background: #e0f5f3;
+}
+.resource-card__eyebrow--lectura-facil {
+    color: #6b2fa0;
+    background: #f0e6fa;
+}
+.resource-card__eyebrow--autismo {
+    color: #1d5687;
+    background: #e5eef8;
+}
+.resource-card__eyebrow--tdah {
+    color: #8a4300;
+    background: #fdecd8;
+}
+.resource-card__eyebrow--dislexia {
+    color: #a31545;
+    background: #fce4ec;
+}
+.resource-card__eyebrow--procesamiento-sensorial {
+    color: #256b29;
+    background: #e3f5e1;
+}
+.resource-card__eyebrow--altas-capacidades {
+    color: #4527a0;
+    background: #e8e5fb;
+}
+
+.resource-card__name {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: calc(16.5px * var(--text-scale));
+    margin: 0;
+}
+
+.resource-card__description {
+    font-size: calc(16px * var(--text-scale));
+    color: var(--text-secondary);
+    flex-grow: 1;
+}
+
+.resource-card__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.resource-card__org {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.resource-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--primary-blue);
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.resource-card__link:hover {
+    text-decoration: underline;
+}

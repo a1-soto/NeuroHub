@@ -85,14 +85,14 @@ export const recursos = [
         url: 'https://www.fundacionconectea.org/',
     },
 
-    // ===== TDAH y Dislexia =====
+    // ===== TDAH =====
     {
         id: 9,
         name: 'FEAADAH — Federación Española de Asociaciones de TDAH',
         tipo: 'Organización',
         description:
             'Federación estatal que agrupa asociaciones de TDAH en toda España. Información sobre el trastorno, orientación para familias y un directorio de asociaciones regionales.',
-        category: 'tdah-dislexia',
+        category: 'tdah',
         org: 'FEAADAH',
         url: 'https://www.feaadah.org/',
     },
@@ -102,19 +102,30 @@ export const recursos = [
         tipo: 'Organización',
         description:
             'Fundación de Barcelona centrada en TDAH y otros trastornos del neurodesarrollo, con escuela de padres, grupos de ayuda mutua y programas educativos para familias.',
-        category: 'tdah-dislexia',
+        category: 'tdah',
         org: 'Fundación Adana',
         url: 'https://fundacionadana.org/',
     },
+    // ===== Dislexia =====
     {
         id: 11,
         name: 'Plataforma Dislexia',
         tipo: 'Portal',
         description:
             'Información en español sobre dislexia — qué es, cómo se detecta y qué apoyos existen — con datos de prevalencia y recursos orientados a familias y docentes.',
-        category: 'tdah-dislexia',
+        category: 'dislexia',
         org: 'Plataforma Dislexia',
         url: 'https://plataformadislexia.org/',
+    },
+    {
+        id: 16,
+        name: 'DISFAM — Dislexia y Familia',
+        tipo: 'Organización',
+        description:
+            'Organización Internacional Dislexia y Familia, fundada en España en 2001. Agrupa familias, personas con dislexia y profesionales; ofrece más de 50 recursos descargables para trabajar la dislexia en casa y en el aula.',
+        category: 'dislexia',
+        org: 'DISFAM',
+        url: 'https://disfam.org/',
     },
 
     // ===== Procesamiento Sensorial =====
@@ -159,5 +170,15 @@ export const recursos = [
         category: 'altas-capacidades',
         org: 'Personas Excepcionales',
         url: 'https://personasexcepcionales.com/',
+    },
+    {
+        id: 17,
+        name: 'Confederación Española de Asociaciones de Altas Capacidades',
+        tipo: 'Organización',
+        description:
+            'Confederación que estudia, distingue y reconoce asociaciones de altas capacidades en España a partir de criterios científicos sobre inteligencia, superdotación y talento.',
+        category: 'altas-capacidades',
+        org: 'CEAS — Confederación Altas Capacidades',
+        url: 'https://confederacionceas.altascapacidades.es/',
     },
 ];
