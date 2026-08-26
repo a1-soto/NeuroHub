@@ -62,6 +62,16 @@ export const recursos = [
         org: 'Gobierno de Aragón',
         url: 'https://arasaac.org/',
     },
+    {
+        id: 18,
+        name: 'ARASAAC — Cuentos Adaptados',
+        tipo: 'Portal',
+        description:
+            'Colección de cuentos infantiles adaptados con pictogramas y lectura fácil, de descarga gratuita bajo licencia Creative Commons. Pensados para facilitar el acceso al ocio y la cultura, con especial apoyo para autismo, TEL y otras dificultades lectoras.',
+        category: 'lectura-facil',
+        org: 'Gobierno de Aragón',
+        url: 'https://aulaabierta.arasaac.org/materiales-caa-cuentos-adaptados',
+    },
 
     // ===== Autismo =====
     {
