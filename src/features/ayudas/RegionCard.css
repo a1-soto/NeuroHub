@@ -1,0 +1,49 @@
+.region-card {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 26px 22px;
+    text-align: left;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: calc(18px * var(--text-scale));
+    color: var(--ink);
+    position: relative;
+    width: 100%;
+    text-decoration: none;
+    display: block;
+    transition:
+        box-shadow var(--motion),
+        transform var(--motion);
+}
+
+.region-card:hover:not([disabled]) {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-2px);
+}
+
+.region-card[disabled] {
+    cursor: default;
+    color: var(--text-secondary);
+}
+
+.status-badge {
+    display: block;
+    font-size: 10.5px;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 20px;
+    margin-top: 10px;
+    width: fit-content;
+}
+
+.status-badge.ready {
+    color: var(--primary-blue);
+    background: var(--chip-selected-bg);
+}
+
+.status-badge.soon {
+    color: var(--status-soon-text);
+    background: var(--status-soon-bg);
+}

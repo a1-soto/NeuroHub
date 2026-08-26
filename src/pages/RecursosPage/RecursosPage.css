@@ -1,69 +1,3 @@
-.wash {
-    background: var(--wash);
-    margin-top: 64px;
-    padding: 40px;
-    padding-left: max(40px, calc((100% - 1400px) / 2 + 40px));
-    padding-right: max(40px, calc((100% - 1400px) / 2 + 40px));
-}
-
-.content-layout {
-    display: grid;
-    grid-template-columns: 240px 1fr;
-    gap: 32px;
-    margin-top: 24px;
-    align-items: start;
-}
-
-.filter-sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    background: var(--primary-blue);
-    border-radius: 15px;
-    padding: 20px;
-    position: sticky;
-    top: 20px;
-}
-
-.filter-sidebar .search-wrap {
-    position: relative;
-}
-
-.filter-sidebar input[type='text'] {
-    width: 100%;
-    box-sizing: border-box;
-    font-family: var(--font-body);
-    font-size: 14px;
-    padding: 10px 34px 10px 12px;
-    border-radius: 10px;
-    border: 1.5px solid var(--border-subtle);
-}
-
-.filter-sidebar .search-clear {
-    position: absolute;
-    top: 50%;
-    right: 8px;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    color: var(--text-secondary);
-    cursor: pointer;
-    display: flex;
-    padding: 4px;
-}
-
-.filter-sidebar select {
-    width: 100%;
-    box-sizing: border-box;
-    font-family: var(--font-body);
-    font-size: 14px;
-    padding: 10px 12px;
-    border-radius: 10px;
-    border: 1.5px solid var(--border-subtle);
-    background: var(--white);
-    color: var(--ink);
-}
-
 .recursos-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -76,23 +10,10 @@
     font-size: 15px;
 }
 
+/* .wash, .content-layout y .filter-sidebar se movieron a index.css (ahora
+   los usa también Ayudas) — este media query se queda acá porque
+   .recursos-grid es específico de esta página, no compartido. */
 @media (max-width: 900px) {
-    .content-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .filter-sidebar {
-        position: static;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-
-    .filter-sidebar .search-wrap,
-    .filter-sidebar select {
-        flex: 1;
-        min-width: 160px;
-    }
-
     .recursos-grid {
         grid-template-columns: 1fr;
     }
