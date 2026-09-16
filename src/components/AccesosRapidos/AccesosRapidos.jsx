@@ -1,4 +1,5 @@
-import { Folder, Users, Bookmark } from 'lucide-react';
+import { Folder, Users, FileText } from 'lucide-react';
+import { useRevealOnScroll } from '../../hooks/useRevealOnScroll';
 import QuickCard from './QuickCard';
 import './AccesosRapidos.css';
 
@@ -17,18 +18,20 @@ const accesos = [
         href: '/profesionales',
     },
     {
-        icon: Bookmark,
-        title: 'Curso',
-        description: 'Formación básica sobre el modelo social de la discapacidad.',
-        href: '/curso',
+        icon: FileText,
+        title: 'Ayudas públicas',
+        description: 'Qué existe, cómo se pide y qué plazos maneja tu comunidad.',
+        href: '/ayudas',
     },
 ];
 
 function AccesosRapidos() {
+    const gridRef = useRevealOnScroll();
+
     return (
-        <section className="accesos-rapidos">
+        <section className="accesos-rapidos px-9 mt-14">
             <h2 className="section-title">Accesos Rápidos</h2>
-            <div className="quick-grid">
+            <div ref={gridRef} className="quick-grid grid grid-cols-1 md:grid-cols-3 gap-5 mt-6">
                 {accesos.map((item) => (
                     <QuickCard key={item.title} {...item} />
                 ))}

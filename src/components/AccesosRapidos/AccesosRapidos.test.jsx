@@ -16,7 +16,7 @@ describe('AccesosRapidos', () => {
         renderAccesosRapidos();
         expect(screen.getByText('Recursos')).toBeInTheDocument();
         expect(screen.getByText('Profesionales')).toBeInTheDocument();
-        expect(screen.getByText('Curso')).toBeInTheDocument();
+        expect(screen.getByText('Ayudas públicas')).toBeInTheDocument();
     });
 
     it('renders three "Ver" links', () => {
