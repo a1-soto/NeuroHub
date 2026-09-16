@@ -4,11 +4,11 @@ import ResourceCard from './ResourceCard';
 
 const recursoDePrueba = {
     name: 'ARASAAC',
-    tipo: 'Portal',
     description: 'Sistema pictográfico de referencia en español.',
     category: 'comunicacion-aumentativa',
-    org: 'Gobierno de Aragón',
     url: 'https://arasaac.org/',
+    org: 'Gobierno de Aragón',
+    tipo: 'Portal',
 };
 
 describe('ResourceCard', () => {
@@ -16,30 +16,25 @@ describe('ResourceCard', () => {
         render(<ResourceCard {...props} />);
     }
 
-    it('renders the name, descrption and org', () => {
+    it('renders the name and description', () => {
         renderResourceCard();
         expect(screen.getByText('ARASAAC')).toBeInTheDocument();
         expect(
             screen.getByText('Sistema pictográfico de referencia en español.')
         ).toBeInTheDocument();
+    });
+
+    it('renders the org and tipo', () => {
+        renderResourceCard();
         expect(screen.getByText('Gobierno de Aragón')).toBeInTheDocument();
+        expect(screen.getByText('Portal')).toBeInTheDocument();
     });
 
-    it('renders the "Recurso externo" badge', () => {
+    it('renders a "Sitio oficial" link that opens the real URL in a new tab', () => {
         renderResourceCard();
-        expect(screen.getByText('Recurso externo')).toBeInTheDocument();
-    });
-
-    it('renders a "Visitar" link that opens the ral URL in a new tab', () => {
-        renderResourceCard();
-        const link = screen.getByRole('link', { name: /visitar/i });
+        const link = screen.getByRole('link', { name: /sitio oficial/i });
         expect(link).toHaveAttribute('href', 'https://arasaac.org/');
         expect(link).toHaveAttribute('target', '_blank');
         expect(link).toHaveAttribute('rel', 'noopener noreferrer');
-    });
-
-    it('gives the tipo icon a real accesible name', () => {
-        renderResourceCard();
-        expect(screen.getByRole('img', { name: 'Portal' })).toBeInTheDocument();
     });
 });

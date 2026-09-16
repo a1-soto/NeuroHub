@@ -1,110 +1,203 @@
-.resource-card {
-    background: var(--white);
-    border-radius: 15px;
-    padding: 20px 24px;
+.dircard {
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    transition:
+        box-shadow var(--motion),
+        transform var(--motion),
+        border-color var(--motion);
+}
+
+.dircard:hover {
+    box-shadow: var(--shadow-soft);
+    transform: translateY(-3px);
+    border-color: transparent;
+}
+
+.dircard:hover .dircard__title {
+    color: var(--color-primary-dark);
+}
+
+.dircard__media {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: linear-gradient(150deg, var(--color-primary) 0%, var(--color-primary-darker) 100%);
+    display: flex;
+    align-items: flex-start;
+    padding: 16px;
+}
+
+.dircard__media--logo {
+    background: var(--color-white);
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.dircard__media-logo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.dircard__media-logo[data-logo='lectura-facil-alf.png'] {
+    max-width: 100px;
+}
+
+.dircard__avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(13, 14, 17, 0.35);
+    backdrop-filter: blur(6px);
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dircard__body {
+    padding: 22px 24px 24px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
 }
 
-.resource-card__icon {
-    width: 32px;
-    height: 32px;
-    flex-shrink: 0;
-    color: var(--primary-blue);
-}
-
-.resource-card__meta {
+.dircard__eyebrow-row {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 8px;
+    margin-bottom: 8px;
 }
 
-.resource-card__badge {
-    font-size: 12px;
-    font-weight: 400;
-    color: var(--primary-blue-dark);
-    background: var(--chip-selected-bg);
-    border-radius: 999px;
+.dircard__eyebrow {
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
     padding: 3px 10px;
-}
-
-.resource-card__eyebrow {
-    font-size: 12px;
-    font-weight: 400;
     border-radius: 999px;
-    padding: 3px 10px;
 }
 
-/* One distinct color pair per category, so cards stay scannable at a glance —
-   same reasoning as Profesionales' specialty tags. */
-.resource-card__eyebrow--comunicacion-aumentativa {
-    color: #0f6e64;
-    background: #e0f5f3;
+.dircard__eyebrow--comunicacion-aumentativa,
+.dircard__eyebrow--comunicacion {
+    background: var(--color-cat-comunicacion-bg);
+    color: var(--color-cat-comunicacion-fg);
 }
-.resource-card__eyebrow--lectura-facil {
-    color: #6b2fa0;
-    background: #f0e6fa;
+.dircard__eyebrow--lectura-facil,
+.dircard__eyebrow--lectura {
+    background: var(--color-cat-lectura-bg);
+    color: var(--color-cat-lectura-fg);
 }
-.resource-card__eyebrow--autismo {
-    color: #1d5687;
-    background: #e5eef8;
+.dircard__eyebrow--tdah {
+    background: var(--color-cat-tdah-bg);
+    color: var(--color-cat-tdah-fg);
 }
-.resource-card__eyebrow--tdah {
-    color: #8a4300;
-    background: #fdecd8;
+.dircard__eyebrow--dislexia {
+    background: var(--color-cat-dislexia-bg);
+    color: var(--color-cat-dislexia-fg);
 }
-.resource-card__eyebrow--dislexia {
-    color: #a31545;
-    background: #fce4ec;
+.dircard__eyebrow--autismo {
+    background: var(--color-cat-autismo-bg);
+    color: var(--color-cat-autismo-fg);
 }
-.resource-card__eyebrow--procesamiento-sensorial {
-    color: #256b29;
-    background: #e3f5e1;
+.dircard__eyebrow--procesamiento-sensorial,
+.dircard__eyebrow--sensorial {
+    background: var(--color-cat-sensorial-bg);
+    color: var(--color-cat-sensorial-fg);
 }
-.resource-card__eyebrow--altas-capacidades {
-    color: #4527a0;
-    background: #e8e5fb;
+.dircard__eyebrow--altas-capacidades,
+.dircard__eyebrow--altas {
+    background: var(--color-cat-altas-bg);
+    color: var(--color-cat-altas-fg);
 }
 
-.resource-card__name {
+.dircard__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 12px;
+}
+
+.dircard__title {
+    font-size: calc(18px * var(--text-scale));
+    line-height: 1.3;
+    transition: color var(--motion);
+}
+
+.dircard__stat {
+    border: 1.3px solid var(--color-border);
+    border-radius: 10px;
+    padding: 6px 12px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.dircard__stat-label {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--color-text-secondary);
+    margin-bottom: 2px;
+}
+
+.dircard__stat-value {
+    display: flex;
+    align-items: center;
+    gap: 4px;
     font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--ink);
+    white-space: nowrap;
+}
+
+.dircard__org {
+    color: var(--color-text-secondary);
+    font-size: 12.5px;
     font-weight: 600;
-    font-size: calc(16.5px * var(--text-scale));
-    margin: 0;
+    margin: 0 0 8px;
 }
 
-.resource-card__description {
-    font-size: calc(16px * var(--text-scale));
-    color: var(--text-secondary);
-    flex-grow: 1;
+.dircard__desc {
+    color: var(--color-text-secondary);
+    font-size: calc(14px * var(--text-scale));
+    line-height: 1.55;
+    margin: 0 0 16px;
 }
 
-.resource-card__footer {
+.dircard__foot {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 12px;
-    margin-top: 8px;
+    padding-top: 14px;
+    border-top: 1px solid var(--color-border);
+    font-size: 13px;
 }
 
-.resource-card__org {
-    font-size: 14px;
-    color: var(--text-secondary);
+.dircard__meta {
+    color: var(--color-text-secondary);
+    font-weight: 600;
 }
 
-.resource-card__link {
+.dircard__site {
     display: inline-flex;
     align-items: center;
     gap: 4px;
     font-weight: 700;
-    font-size: 14px;
-    color: var(--primary-blue);
+    color: var(--color-accent-text);
     text-decoration: none;
     white-space: nowrap;
 }
 
-.resource-card__link:hover {
+.dircard__site:hover {
     text-decoration: underline;
 }

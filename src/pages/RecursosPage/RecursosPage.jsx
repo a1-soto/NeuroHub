@@ -1,24 +1,36 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { X } from 'lucide-react';
+import { Search, X } from 'lucide-react';
 import { recursos } from '../../data/recursos';
 import ResourceCard from '../../components/ResourceCard/ResourceCard';
-import './RecursosPage.css';
+import GooChipFilter from '../../components/GooChipFilter/GooChipFilter';
 
 const CATEGORIAS = [
-    { slug: 'comunicacion-aumentativa', label: 'Comunicación Aumentativa' },
-    { slug: 'lectura-facil', label: 'Lectura Fácil' },
-    { slug: 'autismo', label: 'Autismo' },
-    { slug: 'tdah', label: 'TDAH' },
-    { slug: 'dislexia', label: 'Dislexia' },
-    { slug: 'procesamiento-sensorial', label: 'Procesamiento Sensorial' },
-    { slug: 'altas-capacidades', label: 'Altas Capacidades' },
+    { value: '', label: 'Todos' },
+    { value: 'comunicacion-aumentativa', label: 'Comunicación Aumentativa' },
+    { value: 'lectura-facil', label: 'Lectura Fácil' },
+    { value: 'autismo', label: 'Autismo' },
+    { value: 'tdah', label: 'TDAH' },
+    { value: 'dislexia', label: 'Dislexia' },
+    { value: 'procesamiento-sensorial', label: 'Procesamiento Sensorial' },
+    { value: 'altas-capacidades', label: 'Altas Capacidades' },
 ];
+
+const CATEGORIA_VALUES = CATEGORIAS.map((c) => c.value);
 
 function RecursosPage() {
     const [busqueda, setBusqueda] = useState('');
     const [searchParams, setSearchParams] = useSearchParams();
-    const categoriaActiva = searchParams.get('categoria') ?? '';
+
+    useEffect(() => {
+        const categoriaParam = searchParams.get('categoria');
+        if (categoriaParam && !CATEGORIA_VALUES.includes(categoriaParam)) {
+            setSearchParams({}, { replace: true });
+        }
+    }, [searchParams, setSearchParams]);
+
+    const categoriaParam = searchParams.get('categoria');
+    const categoriaActiva = CATEGORIA_VALUES.includes(categoriaParam) ? categoriaParam : '';
 
     const recursosFiltrados = recursos.filter((r) => {
         const matchesCategoria = !categoriaActiva || r.category === categoriaActiva;
@@ -35,8 +47,7 @@ function RecursosPage() {
         setBusqueda('');
     }
 
-    function handleCategoriaChange(e) {
-        const value = e.target.value;
+    function handleCategoriaChange(value) {
         if (value) {
             setSearchParams({ categoria: value });
         } else {
@@ -45,66 +56,58 @@ function RecursosPage() {
     }
 
     return (
-        <section className="wash">
-            <h1 className="section-title">Biblioteca de Recursos</h1>
-            <p className="section-sub">
-                Materiales gratuitos y organizaciones reales para autismo, TDAH, dislexia,
-                procesamiento sensorial y altas capacidades — cada recurso enlaza a su fuente
-                original.
-            </p>
+        <>
+            <div className="page-header">
+                <h1>Biblioteca de Recursos</h1>
+                <p>
+                    Materiales gratuitos y organizaciones reales para autismo, TDAH, dislexia,
+                    procesamiento sensorial y altas capacidades — cada recurso enlaza a su fuente
+                    original.
+                </p>
+            </div>
 
-            <div className="content-layout">
-                <div className="filter-sidebar">
+            <div className="filterbar">
+                <div className="filterbar__search">
+                    <Search aria-hidden="true" />
                     <label className="sr-only" htmlFor="recSearch">
                         Buscar recurso
                     </label>
-                    <div className="search-wrap">
-                        <input
-                            id="recSearch"
-                            type="text"
-                            placeholder="Buscar…"
-                            value={busqueda}
-                            onChange={handleBusquedaChange}
-                        />
-                        {busqueda && (
-                            <button
-                                type="button"
-                                className="search-clear"
-                                onClick={handleBusquedaClear}
-                                aria-label="Borrar búsqueda"
-                            >
-                                <X size={14} strokeWidth={3} aria-hidden="true" />
-                            </button>
-                        )}
-                    </div>
-
-                    <label className="sr-only" htmlFor="recCategoria">
-                        Categoría
-                    </label>
-                    <select
-                        id="recCategoria"
-                        value={categoriaActiva}
-                        onChange={handleCategoriaChange}
-                    >
-                        <option value="">Todos los Recursos</option>
-                        {CATEGORIAS.map((cat) => (
-                            <option key={cat.slug} value={cat.slug}>
-                                {cat.label}
-                            </option>
-                        ))}
-                    </select>
-                </div>
-
-                <div className="recursos-grid">
-                    {recursosFiltrados.map((r) => (
-                        <ResourceCard key={r.id} {...r} />
-                    ))}
-                    {recursosFiltrados.length === 0 && (
-                        <p className="recursos-empty">Ningún recurso coincide con ese filtro.</p>
+                    <input
+                        id="recSearch"
+                        type="text"
+                        placeholder="Buscar recursos…"
+                        value={busqueda}
+                        onChange={handleBusquedaChange}
+                    />
+                    {busqueda && (
+                        <button
+                            type="button"
+                            className="filterbar__search-clear"
+                            onClick={handleBusquedaClear}
+                            aria-label="Borrar búsqueda"
+                        >
+                            <X size={14} strokeWidth={3} aria-hidden="true" />
+                        </button>
                     )}
                 </div>
+
+                <GooChipFilter
+                    options={CATEGORIAS}
+                    value={categoriaActiva}
+                    onChange={handleCategoriaChange}
+                    ariaLabel="Filtrar recursos por categoría"
+                />
             </div>
-        </section>
+
+            <div className="card-grid">
+                {recursosFiltrados.map((r) => (
+                    <ResourceCard key={r.id} {...r} />
+                ))}
+                {recursosFiltrados.length === 0 && (
+                    <p className="grid-empty">Ningún recurso coincide con ese filtro.</p>
+                )}
+            </div>
+        </>
     );
 }
 

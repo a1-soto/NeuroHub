@@ -1,0 +1,59 @@
+.goo-outer {
+    position: relative;
+}
+
+.goo-defs {
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+
+.goo-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.goo-blob {
+    position: absolute;
+    top: 0;
+    height: 41px;
+    border-radius: var(--radius-pill);
+    background: var(--color-primary);
+    transition:
+        left var(--motion-slow) cubic-bezier(0.5, 1.8, 0.4, 0.9),
+        top var(--motion-slow) cubic-bezier(0.5, 1.8, 0.4, 0.9),
+        width var(--motion-slow) cubic-bezier(0.5, 1.8, 0.4, 0.9);
+}
+
+.chip-layer {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.chip {
+    position: relative;
+    padding: 11px 20px;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    transition: color var(--motion);
+}
+
+.chip.is-active {
+    color: var(--color-white);
+}
+
+.chip:not(.is-active):hover {
+    color: var(--color-primary-dark);
+}
+
+.chip:focus-visible {
+    outline-offset: -2px;
+}

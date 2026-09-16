@@ -9,6 +9,7 @@ export const recursos = [
         category: 'comunicacion-aumentativa',
         org: 'Gobierno de Aragón',
         url: 'https://arasaac.org/',
+        logo: 'arasaac.svg',
     },
     {
         id: 2,
@@ -29,6 +30,7 @@ export const recursos = [
         category: 'comunicacion-aumentativa',
         org: 'Plena Inclusión',
         url: 'https://www.plenainclusion.org/',
+        logo: 'plena-inclusion.png',
     },
 
     // ===== Lectura Fácil =====
@@ -41,6 +43,7 @@ export const recursos = [
         category: 'lectura-facil',
         org: 'Asociación Lectura Fácil',
         url: 'https://www.lecturafacil.net/es/',
+        logo: 'lectura-facil-alf.png',
     },
     {
         id: 5,
@@ -51,6 +54,7 @@ export const recursos = [
         category: 'lectura-facil',
         org: 'Lectura Fácil Castilla y León',
         url: 'https://www.lecturafacyl.es/',
+        logo: 'lectura-facil-cyl.png',
     },
     {
         id: 6,
@@ -61,6 +65,7 @@ export const recursos = [
         category: 'lectura-facil',
         org: 'Gobierno de Aragón',
         url: 'https://arasaac.org/',
+        logo: 'arasaac.svg',
     },
     {
         id: 18,
@@ -71,6 +76,7 @@ export const recursos = [
         category: 'lectura-facil',
         org: 'Gobierno de Aragón',
         url: 'https://aulaabierta.arasaac.org/materiales-caa-cuentos-adaptados',
+        logo: 'arasaac.svg',
     },
 
     // ===== Autismo =====
@@ -83,6 +89,7 @@ export const recursos = [
         category: 'autismo',
         org: 'Confederación Autismo España',
         url: 'https://autismo.org.es/',
+        logo: 'autismo-espana.png',
     },
     {
         id: 8,
@@ -93,6 +100,18 @@ export const recursos = [
         category: 'autismo',
         org: 'Fundación ConecTEA',
         url: 'https://www.fundacionconectea.org/',
+        logo: 'fundacion-conectea.png',
+    },
+    {
+        id: 19,
+        name: 'APNABI — Autismo Bizkaia',
+        tipo: 'Organización',
+        description:
+            'Asociación de personas con autismo y sus familias de Bizkaia, con un apartado propio de accesibilidad cognitiva y recursos descargables orientados a la vida diaria.',
+        category: 'autismo',
+        org: 'APNABI',
+        url: 'https://www.apnabi.eus/',
+        logo: 'apnabi.png',
     },
 
     // ===== TDAH =====
@@ -105,6 +124,7 @@ export const recursos = [
         category: 'tdah',
         org: 'FEAADAH',
         url: 'https://www.feaadah.org/',
+        logo: 'feaadah.png',
     },
     {
         id: 10,
@@ -115,6 +135,18 @@ export const recursos = [
         category: 'tdah',
         org: 'Fundación Adana',
         url: 'https://fundacionadana.org/',
+        logo: 'fundacion-adana.png',
+    },
+    {
+        id: 20,
+        name: 'Fundación CADAH',
+        tipo: 'Organización',
+        description:
+            'Fundación de Santander centrada en TDAH, con asesoramiento, intervención terapéutica para familias e infancia, formación docente y programas coordinados con centros escolares.',
+        category: 'tdah',
+        org: 'Fundación CADAH',
+        url: 'https://www.fundacioncadah.org/web/',
+        logo: 'fundacion-cadah.jpg',
     },
     // ===== Dislexia =====
     {
@@ -126,6 +158,7 @@ export const recursos = [
         category: 'dislexia',
         org: 'Plataforma Dislexia',
         url: 'https://plataformadislexia.org/',
+        logo: 'plataforma-dislexia.png',
     },
     {
         id: 16,
@@ -136,6 +169,7 @@ export const recursos = [
         category: 'dislexia',
         org: 'DISFAM',
         url: 'https://disfam.org/',
+        logo: 'disfam-badge.png',
     },
 
     // ===== Procesamiento Sensorial =====
@@ -148,6 +182,7 @@ export const recursos = [
         category: 'procesamiento-sensorial',
         org: 'TeaEduca',
         url: 'https://teaeduca.cat/',
+        logo: 'teaeduca.svg',
     },
     {
         id: 13,
@@ -158,6 +193,18 @@ export const recursos = [
         category: 'procesamiento-sensorial',
         org: 'Autismo España',
         url: 'https://formacioncampusautismo.es/',
+        logo: 'campus-angel-riviere.jpg',
+    },
+    {
+        id: 21,
+        name: 'AEIS — Asociación Española de Integración Sensorial',
+        tipo: 'Organización',
+        description:
+            'Asociación profesional fundada en 2004 que reúne a terapeutas ocupacionales formados en el enfoque de integración sensorial, con formación y divulgación sobre dificultades del procesamiento sensorial.',
+        category: 'procesamiento-sensorial',
+        org: 'AEIS',
+        url: 'https://integracionsensorial.es/',
+        logo: 'aeis.png',
     },
 
     // ===== Altas Capacidades =====
@@ -170,6 +217,7 @@ export const recursos = [
         category: 'altas-capacidades',
         org: 'Programa Talentum',
         url: 'https://www.programatalentum.es/',
+        logo: 'programa-talentum.png',
     },
     {
         id: 15,
@@ -180,6 +228,7 @@ export const recursos = [
         category: 'altas-capacidades',
         org: 'Personas Excepcionales',
         url: 'https://personasexcepcionales.com/',
+        logo: 'personas-excepcionales.webp',
     },
     {
         id: 17,
