@@ -17,10 +17,33 @@ const RECURSOS_ITEMS = [
 ];
 
 const AYUDAS_ITEMS = [
-    { label: 'Madrid', to: '/ayudas/madrid' },
-    { label: 'Cataluña', to: '/ayudas/cataluna' },
-    { label: 'Andalucía', to: '/ayudas/andalucia' },
+    { label: 'Madrid', to: '/ayudas?region=madrid' },
+    { label: 'Cataluña', to: '/ayudas?region=cataluna' },
+    { label: 'Andalucía', to: '/ayudas?region=andalucia' },
 ];
+
+const NAV_ITEMS = [
+    { type: 'link', label: 'Inicio', to: '/' },
+    { type: 'link', label: 'Noticias', to: '/noticias' },
+    { type: 'dropdown', label: 'Recursos', to: '/recursos', items: RECURSOS_ITEMS },
+    { type: 'link', label: 'Blog', to: '/blog' },
+    { type: 'link', label: 'Profesionales', to: '/profesionales' },
+    { type: 'dropdown', label: 'Ayudas', to: '/ayudas', items: AYUDAS_ITEMS },
+    { type: 'link', label: 'Curso', to: '/curso' },
+    { type: 'link', label: 'Contacto', to: '/contacto' },
+];
+
+function pillLinkClassName({ isActive }) {
+    return `pillnav__link ${isActive ? 'is-active' : ''}`;
+}
+
+function drawerLinkClassName({ isActive }) {
+    return `mobile-drawer__link ${isActive ? 'is-active' : ''}`;
+}
+
+function drawerSublinkClassName({ isActive }) {
+    return `mobile-drawer__sublink ${isActive ? 'is-active' : ''}`;
+}
 
 function Nav() {
     const [panelOpen, setPanelOpen] = useState(false);
@@ -50,58 +73,84 @@ function Nav() {
 
     return (
         <>
-            <header className="nav">
-                <NavLink to="/" className="nav__logo">
-                    Neuro<span className="nav__logo-accent">Hub</span>
-                </NavLink>
-                <nav
-                    className={`nav__links ${mobileMenuOpen ? 'nav__links--open' : ''}`}
-                    aria-label="Navegación principal"
-                >
-                    <NavLink to="/">Inicio</NavLink>
-                    <NavLink to="/noticias">Noticias</NavLink>
-                    <NavDropdown label="Recursos" to="/recursos" items={RECURSOS_ITEMS} />
-                    <NavLink to="/blog">Blog</NavLink>
-                    <NavLink to="/profesionales">Profesionales</NavLink>
-                    <NavDropdown label="Ayudas" to="/ayudas" items={AYUDAS_ITEMS} />
-                    <NavLink to="/curso">Curso</NavLink>
-                    <NavLink to="/contacto">Contacto</NavLink>
-                </nav>
+            <div className="pillnav-wrap">
+                <header className="pillnav">
+                    <NavLink to="/" className="pillnav__logo">
+                        Neuro<span className="pillnav__logo-accent">Hub</span>
+                    </NavLink>
 
-                <div className="nav__a11y">
-                    <button
-                        className={`nav__a11y-btn ${bajoEstimulo ? 'nav__a11y-btn--active' : ''}`}
-                        onClick={toggleBajoEstimulo}
-                        aria-pressed={bajoEstimulo}
-                        aria-label="Bajo Estímulo"
-                    >
-                        <Sparkles aria-hidden="true" />
-                        <span className="nav__a11y-btn-label" aria-hidden="true">
-                            Bajo Estímulo
-                        </span>
-                    </button>
-                    <button
-                        className="nav__a11y-btn"
-                        onClick={openPanel}
-                        aria-expanded={panelOpen}
-                        aria-label="Ajustes UX"
-                    >
-                        <SlidersHorizontal aria-hidden="true" />
-                        <span className="nav__a11y-btn-label" aria-hidden="true">
-                            Ajustes UX
-                        </span>
-                    </button>
-                </div>
+                    <nav className="pillnav__links" aria-label="Navegación principal">
+                        {NAV_ITEMS.map((item) =>
+                            item.type === 'dropdown' ? (
+                                <NavDropdown
+                                    key={item.label}
+                                    label={item.label}
+                                    to={item.to}
+                                    items={item.items}
+                                />
+                            ) : (
+                                <NavLink
+                                    key={item.label}
+                                    to={item.to}
+                                    className={pillLinkClassName}
+                                >
+                                    {item.label}
+                                </NavLink>
+                            )
+                        )}
+                    </nav>
 
-                <button
-                    className="nav__hamburger"
-                    onClick={toggleMobileMenu}
-                    aria-expanded={mobileMenuOpen}
-                    aria-label="Abrir menú de navegación"
-                >
-                    {mobileMenuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
-                </button>
-            </header>
+                    <div className="pillnav__actions">
+                        <button
+                            className={bajoEstimulo ? 'is-active' : ''}
+                            onClick={toggleBajoEstimulo}
+                            aria-pressed={bajoEstimulo}
+                            title="Bajo Estímulo"
+                            aria-label="Bajo Estímulo"
+                        >
+                            <Sparkles aria-hidden="true" />
+                        </button>
+                        <button
+                            onClick={openPanel}
+                            aria-expanded={panelOpen}
+                            title="Ajustes UX"
+                            aria-label="Ajustes UX"
+                        >
+                            <SlidersHorizontal aria-hidden="true" />
+                        </button>
+                    </div>
+
+                    <button
+                        className="pillnav__hamburger"
+                        onClick={toggleMobileMenu}
+                        aria-expanded={mobileMenuOpen}
+                        aria-label="Abrir menú de navegación"
+                    >
+                        {mobileMenuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}
+                    </button>
+                </header>
+            </div>
+
+            <div className="mobile-drawer" hidden={!mobileMenuOpen}>
+                {NAV_ITEMS.map((item) => (
+                    <div key={item.label} className="mobile-drawer__group">
+                        <NavLink to={item.to} className={drawerLinkClassName}>
+                            {item.label}
+                        </NavLink>
+                        {item.type === 'dropdown' &&
+                            item.items.map((subItem) => (
+                                <NavLink
+                                    key={subItem.to}
+                                    to={subItem.to}
+                                    className={drawerSublinkClassName}
+                                >
+                                    {subItem.label}
+                                </NavLink>
+                            ))}
+                    </div>
+                ))}
+            </div>
+
             <AccesibilidadPanel open={panelOpen} onClose={closePanel} />
         </>
     );

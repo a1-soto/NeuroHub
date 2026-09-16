@@ -2,6 +2,10 @@ import { Link, NavLink } from 'react-router-dom';
 
 import './NavDropdown.css';
 
+function pillLinkClassName({ isActive }) {
+    return `pillnav__link ${isActive ? 'is-active' : ''}`;
+}
+
 function NavDropdown({ label, to, items }) {
     function handleLinkClick(e) {
         // Blurs the clicked link so :focus-within stops holding the menu open
@@ -11,7 +15,7 @@ function NavDropdown({ label, to, items }) {
 
     return (
         <div className="nav-dropdown">
-            <NavLink to={to} onClick={handleLinkClick}>
+            <NavLink to={to} className={pillLinkClassName} onClick={handleLinkClick}>
                 {label}
             </NavLink>
             <div className="nav-dropdown__menu">

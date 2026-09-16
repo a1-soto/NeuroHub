@@ -77,15 +77,15 @@ describe('Nav', () => {
         renderNav();
         expect(screen.getByRole('link', { name: 'Madrid' })).toHaveAttribute(
             'href',
-            '/ayudas/madrid'
+            '/ayudas?region=madrid'
         );
         expect(screen.getByRole('link', { name: 'Cataluña' })).toHaveAttribute(
             'href',
-            '/ayudas/cataluna'
+            '/ayudas?region=cataluna'
         );
         expect(screen.getByRole('link', { name: 'Andalucía' })).toHaveAttribute(
             'href',
-            '/ayudas/andalucia'
+            '/ayudas?region=andalucia'
         );
     });
 

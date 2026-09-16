@@ -7,7 +7,7 @@ function Footer() {
         <footer className="footer">
             <div className="footer__grid">
                 <div className="footer__links">
-                    <strong className="footer__heading">NEUROHUB</strong>
+                    <strong className="footer__heading">NeuroHub</strong>
                     <Link to="/quienes-somos">¿Quiénes somos?</Link>
                     <Link to="/aviso-legal">Aviso Legal</Link>
                     <Link to="/privacidad">Política de Privacidad</Link>
@@ -19,9 +19,9 @@ function Footer() {
                     <p className="footer__support-card-text">
                         Historias reales de la comunidad NeuroHub sobre encontrar el apoyo adecuado.
                     </p>
-                    <Link to="/testimonios" className="btn btn--primary">
+                    <Link to="/testimonios" className="btn btn--outline-dark">
                         Ir
-                        <ArrowRight size={20} strokeWidth={3} aria-hidden="true" />
+                        <ArrowRight size={16} strokeWidth={3} aria-hidden="true" />
                     </Link>
                 </div>
 
@@ -30,9 +30,9 @@ function Footer() {
                     <p className="footer__support-card-text">
                         Tu ayuda sostiene la biblioteca de recursos y el directorio gratuito.
                     </p>
-                    <Link to="/donacion" className="btn btn--primary">
+                    <Link to="/donacion" className="btn btn--outline-dark">
                         Donar
-                        <ArrowRight size={20} strokeWidth={3} aria-hidden="true" />
+                        <ArrowRight size={16} strokeWidth={3} aria-hidden="true" />
                     </Link>
                 </div>
             </div>
