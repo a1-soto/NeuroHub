@@ -1,5 +1,6 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useParams } from 'react-router-dom';
 import { AccesibilidadContext } from './context/AccesibilidadContext';
+import { comunidades } from './data/ayudas';
 
 import { useState, useEffect, useMemo } from 'react';
 
@@ -7,6 +8,8 @@ import Nav from './components/Nav/Nav';
 import Footer from './components/Footer/Footer';
 
 import ReadingGuide from './components/ReadingGuide/ReadingGuide';
+import ScrollProgress from './components/ScrollProgress/ScrollProgress';
+import BackToTop from './components/BackToTop/BackToTop';
 
 import InicioPage from './pages/InicioPage/InicioPage';
 import NoticiasPage from './pages/NoticiasPage/NoticiasPage';
@@ -23,6 +26,19 @@ import AvisoLegalPage from './pages/AvisoLegalPage/AvisoLegalPage';
 import PrivacidadPage from './pages/PrivacidadPage/PrivacidadPage';
 import CondicionesPage from './pages/CondicionesPage/CondicionesPage';
 import CookiesPage from './pages/CookiesPage/CookiesPage';
+
+// Old nested routing scheme was /ayudas/:region/:provincia?/:municipio? — the
+// region/provincia/municipio drill-down now lives on one page (AyudasPage),
+// selected via ?region=. This keeps a deep link's region instead of always
+// dropping it, so an indexed/bookmarked /ayudas/andalucia/sevilla still lands
+// on Andalucía instead of silently defaulting to Madrid.
+function AyudasLegacyRedirect() {
+    const { '*': wildcard } = useParams();
+    const [regionSlug] = (wildcard ?? '').split('/');
+    const esRegionConocida = comunidades.some((c) => c.slug === regionSlug);
+
+    return <Navigate to={esRegionConocida ? `/ayudas?region=${regionSlug}` : '/ayudas'} replace />;
+}
 
 function App() {
     const [bajoEstimulo, setBajoEstimulo] = useState(false);
@@ -69,7 +85,8 @@ function App() {
                         <Route path="/noticias" element={<NoticiasPage />} />
                         <Route path="/recursos" element={<RecursosPage />} />
                         <Route path="/profesionales" element={<ProfesionalesPage />} />
-                        <Route path="/ayudas/*" element={<AyudasPage />} />
+                        <Route path="/ayudas" element={<AyudasPage />} />
+                        <Route path="/ayudas/*" element={<AyudasLegacyRedirect />} />
                         <Route path="/curso" element={<CursoPage />} />
                         <Route path="/blog" element={<BlogPage />} />
                         <Route path="/contacto" element={<ContactoPage />} />
@@ -84,6 +101,8 @@ function App() {
                 </main>
                 <Footer />
                 <ReadingGuide />
+                <ScrollProgress />
+                <BackToTop />
             </BrowserRouter>
         </AccesibilidadContext.Provider>
     );
