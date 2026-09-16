@@ -1,0 +1,1 @@
+/Users/angie_mac/Development/DOCUMENTATION/portafolio/NeuroHub/image-briefs.md

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="275" viewBox="0 0 500 140" role="img" aria-label="TEAEDUCA Fundació Autisme Mas Casadevall">
+  <rect width="500" height="140" fill="#ffffff"/>
+
+  <!-- dots -->
+  <circle cx="59" cy="23" r="5.5" fill="#d4d900"/>
+  <circle cx="77" cy="35" r="4.6" fill="#df6a96"/>
+  <circle cx="66" cy="56" r="7.2" fill="#f6aa08"/>
+
+  <!-- book icon -->
+  <polygon points="24,96 24,74 60,74 60,124" fill="#4a89cf"/>
+  <polygon points="34,90 34,66 60,74 60,124" fill="#69bad9"/>
+  <polygon points="50,60 60,74 60,124 50,114" fill="#d4db00"/>
+  <polygon points="60,74 84,60 84,114 60,124" fill="#f8e600"/>
+  <polygon points="84,74 96,70 96,114 84,124" fill="#f5ab00"/>
+  <polygon points="96,74 104,74 104,124 96,124" fill="#e96a98"/>
+
+  <!-- title -->
+  <text x="106" y="93"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="46"
+        font-weight="700"
+        letter-spacing="1"
+        fill="#3c8acb">TEAEDUCA</text>
+
+  <!-- subtitle -->
+  <text x="107" y="121"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="16"
+        font-weight="400"
+        fill="#3c8acb">Fundació Autisme Mas Casadevall</text>
+</svg>
