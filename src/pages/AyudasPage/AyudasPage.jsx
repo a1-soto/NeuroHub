@@ -1,145 +1,160 @@
-import { useState } from 'react';
-import { comunidades, regionesDetalle } from '../../data/ayudas';
-import RegionCard from '../../features/ayudas/RegionCard';
-import { Routes, Route, Navigate, Link } from 'react-router-dom';
-import MunicipioTabs from '../../features/ayudas/MunicipioTabs';
-import ProvinciaSelector from '../../features/ayudas/ProvinciaSelector';
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { Check } from 'lucide-react';
+import { comunidades, regionesDetalle, TIPOS_AYUDA } from '../../data/ayudas';
+import GooChipFilter from '../../components/GooChipFilter/GooChipFilter';
 import './AyudasPage.css';
 
-function AyudasLanding() {
-    const [busqueda, setBusqueda] = useState('');
-    const [soloDisponibles, setSoloDisponibles] = useState(false);
+const REGIONES_LISTAS = comunidades
+    .filter((c) => c.status === 'ready')
+    .map((c) => ({ value: c.slug, label: c.label }));
 
-    const comunidadesFiltradas = comunidades.filter((c) => {
-        const texto = c.label.toLowerCase();
-        const matchesBusqueda = !busqueda || texto.includes(busqueda.trim().toLowerCase());
-        const matchesFiltro = !soloDisponibles || c.status === 'ready';
-        return matchesBusqueda && matchesFiltro;
-    });
+const REGIONES_PROXIMAMENTE = comunidades.filter((c) => c.status !== 'ready');
 
-    function handleBusquedaChange(e) {
-        setBusqueda(e.target.value);
-    }
+// Buscador real de oficinas de atención a la ciudadanía del Gobierno de
+// España (fuente: DIR3, el registro oficial de unidades administrativas) —
+// verificado 2026-09-10. No es un buscador propio de NeuroHub: no hay
+// backend ni base de datos de oficinas en este proyecto, así que el botón
+// lleva a la herramienta oficial real en vez de simular una búsqueda.
+const OFICINAS_LOCATOR_URL =
+    'https://administracion.gob.es/pag_Home/atencionCiudadana/encuentraTuOficina.html';
 
-    function handleFiltroChange(e) {
-        setSoloDisponibles(e.target.value === 'disponibles');
+function AyudasPage() {
+    const [searchParams, setSearchParams] = useSearchParams();
+    const [tipoActivo, setTipoActivo] = useState(TIPOS_AYUDA[0].value);
+
+    useEffect(() => {
+        const regionParam = searchParams.get('region');
+        if (regionParam && !regionesDetalle[regionParam]) {
+            setSearchParams({ region: 'madrid' }, { replace: true });
+        }
+    }, [searchParams, setSearchParams]);
+
+    const regionParam = searchParams.get('region');
+    const regionActiva = regionesDetalle[regionParam] ? regionParam : 'madrid';
+    const region = regionesDetalle[regionActiva];
+    const ayuda = region.ayudas[tipoActivo];
+
+    function handleRegionChange(value) {
+        setSearchParams({ region: value });
     }
 
     return (
-        <section className="wash">
-            <h1 className="section-title">Guías de Ayudas Públicas</h1>
-            <p className="section-sub">
-                Los trámites y los tiempos varían según dónde vivís. Elegí tu comunidad autónoma —
-                ya tenemos guías completas para Madrid, Cataluña y Andalucía; el resto se suma en
-                próximas versiones.
-            </p>
-            <div className="content-layout">
-                <div className="filter-sidebar">
-                    <label className="sr-only" htmlFor="ayudaSearch">
-                        Buscar comunidad
-                    </label>
-                    <div className="search-wrap">
-                        <input
-                            id="ayudaSearch"
-                            type="text"
-                            placeholder="Buscar…"
-                            value={busqueda}
-                            onChange={handleBusquedaChange}
-                        />
+        <>
+            <div className="page-header">
+                <h1>Guías de Ayudas Públicas</h1>
+                <p>
+                    Los trámites y los tiempos varían según dónde vivís. Empezá por lo que necesitás
+                    — ya tenemos guías completas para Madrid, Cataluña y Andalucía; el resto se suma
+                    en próximas versiones.
+                </p>
+            </div>
+
+            <div className="stat-hook">
+                <p>
+                    Tu comunidad importa más de lo que parece: el{' '}
+                    <strong>plazo legal es 180 días</strong>, pero el tiempo real varía casi 5 veces
+                    entre regiones.
+                </p>
+                <div className="stat-group">
+                    <div className="stat">
+                        <span className="stat__label">Cataluña</span>
+                        <span className="stat__value">
+                            {regionesDetalle.cataluna.tiempoTramitacion}
+                            <small> días</small>
+                        </span>
                     </div>
-                    <label className="sr-only" htmlFor="ayudaFiltro">
-                        Filtro
-                    </label>
-                    <select id="ayudaFiltro" onChange={handleFiltroChange}>
-                        <option value="todas">Todas las Ayudas</option>
-                        <option value="disponibles">Con guía disponible</option>
-                    </select>
+                    <div className="stat">
+                        <span className="stat__label">Madrid</span>
+                        <span className="stat__value">
+                            {regionesDetalle.madrid.tiempoTramitacion}
+                            <small> días</small>
+                        </span>
+                    </div>
+                    <div className="stat">
+                        <span className="stat__label">Andalucía</span>
+                        <span className="stat__value">
+                            {regionesDetalle.andalucia.tiempoTramitacion}
+                            <small> días</small>
+                        </span>
+                    </div>
+                    <div className="stat stat--limit">
+                        <span className="stat__label">Plazo legal</span>
+                        <span className="stat__value">
+                            180<small> días</small>
+                        </span>
+                    </div>
                 </div>
-                <div className="ayudas-grid">
-                    {comunidadesFiltradas.map((c) => (
-                        <RegionCard key={c.slug} {...c} />
+            </div>
+
+            <div className="ayudas-block">
+                <p className="ayudas-step-label">
+                    <span className="num">1</span> ¿Qué necesitás?
+                </p>
+                <GooChipFilter
+                    options={TIPOS_AYUDA}
+                    value={tipoActivo}
+                    onChange={setTipoActivo}
+                    ariaLabel="Elegí qué necesitás"
+                />
+            </div>
+
+            <div className="ayudas-block">
+                <p className="ayudas-step-label">
+                    <span className="num">2</span> Elegí tu comunidad autónoma
+                </p>
+                <GooChipFilter
+                    options={REGIONES_LISTAS}
+                    value={regionActiva}
+                    onChange={handleRegionChange}
+                    ariaLabel="Elegí tu comunidad autónoma"
+                />
+                <div className="region-fallback">
+                    {REGIONES_PROXIMAMENTE.map((c) => (
+                        <span key={c.slug}>{c.label} — Próximamente</span>
                     ))}
                 </div>
             </div>
-        </section>
-    );
-}
 
-function RegionMadrid() {
-    const region = regionesDetalle.madrid;
+            <div className="ayudas-detail">
+                <div className="ayudas-detail__eyebrow">
+                    {region.label} · {ayuda.titulo}
+                </div>
+                <h3>Cómo es el trámite</h3>
+                <ul className="checklist">
+                    {ayuda.pasos.map((paso) => (
+                        <li key={paso}>
+                            <Check aria-hidden="true" />
+                            {paso}
+                        </li>
+                    ))}
+                </ul>
+                <a
+                    href={region.sedeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn--primary"
+                >
+                    Sede electrónica oficial
+                </a>
 
-    return (
-        <section className="wash">
-            <Link to="/ayudas" className="back-link">
-                ← Volver a Ayudas
-            </Link>
-            <h1 className="section-title">Ayudas en la {region.label}</h1>
-            <p className="section-sub">
-                Madrid es una comunidad uniprovincial: la provincia coincide con la comunidad
-                autónoma. Elegí tu municipio.
-            </p>
-            <div className="region-stat">
-                Tiempo medio de tramitación en Madrid:{' '}
-                <strong>{region.tiempoTramitacion} días</strong>
+                <div className="ayudas-detail__locator">
+                    <p className="ayudas-detail__locator-label">¿Dónde tramitarlo?</p>
+                    <a
+                        href={OFICINAS_LOCATOR_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn--primary"
+                    >
+                        Buscar mi oficina más cercana
+                    </a>
+                    <p className="ayudas-detail__locator-note">
+                        Te lleva al buscador oficial de oficinas de atención de la Administración
+                        General del Estado — buscá ahí por tu código postal o localidad.
+                    </p>
+                </div>
             </div>
-            <MunicipioTabs municipios={region.municipios} />
-        </section>
-    );
-}
-
-function RegionCataluna() {
-    const region = regionesDetalle.cataluna;
-
-    return (
-        <section className="wash">
-            <Link to="/ayudas" className="back-link">
-                ← Volver a Ayudas
-            </Link>
-            <h1 className="section-title">Ayudas en {region.label}</h1>
-            <p className="section-sub">
-                Cataluña tiene varias provincias, a diferencia de Madrid — elegí la tuya y después
-                tu municipio.
-            </p>
-            <div className="region-stat">
-                Tiempo medio de tramitación en Cataluña:{' '}
-                <strong>{region.tiempoTramitacion} días</strong>
-            </div>
-            <ProvinciaSelector provincias={region.provincias} regionSlug="cataluna" />
-        </section>
-    );
-}
-
-function RegionAndalucia() {
-    const region = regionesDetalle.andalucia;
-
-    return (
-        <section className="wash">
-            <Link to="/ayudas" className="back-link">
-                ← Volver a Ayudas
-            </Link>
-            <h1 className="section-title">Ayudas en {region.label}</h1>
-            <p className="section-sub">
-                Andalucía también se organiza en provincias — elegí la tuya y después tu municipio.
-            </p>
-            <div className="region-stat">
-                Tiempo medio de tramitación en Andalucía:{' '}
-                <strong>{region.tiempoTramitacion} días</strong>
-            </div>
-            <ProvinciaSelector provincias={region.provincias} regionSlug="andalucia" />
-        </section>
-    );
-}
-
-function AyudasPage() {
-    return (
-        <Routes>
-            <Route index element={<AyudasLanding />} />
-            <Route path="madrid" element={<RegionMadrid />} />
-            <Route path="cataluna" element={<Navigate to="/ayudas/cataluna/barcelona" replace />} />
-            <Route path="cataluna/:provincia" element={<RegionCataluna />} />
-            <Route path="andalucia" element={<Navigate to="/ayudas/andalucia/sevilla" replace />} />
-            <Route path="andalucia/:provincia" element={<RegionAndalucia />} />
-        </Routes>
+        </>
     );
 }
 

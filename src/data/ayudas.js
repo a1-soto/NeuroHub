@@ -18,147 +18,109 @@ export const comunidades = [
     { slug: 'la-rioja', label: 'La Rioja', status: 'soon' },
 ];
 
+// Educación (NEAE) y reconocimiento de discapacidad son competencia de
+// comunidad autónoma — el organismo y los requisitos son los mismos en toda
+// la región. Lo único que varía por localidad es qué oficina física tramita
+// el papeleo, y eso no tiene contenido propio verificable todavía (ver
+// AyudasPage.jsx → locator). Corrección 2026-09-08, page-specs.md §5.
+export const TIPOS_AYUDA = [
+    { value: 'educacion', label: 'Becas y apoyos NEAE' },
+    { value: 'discapacidad', label: 'Reconocimiento de discapacidad' },
+    { value: 'laboral', label: 'Adaptaciones laborales' },
+];
+
 export const regionesDetalle = {
     madrid: {
         label: 'Comunidad de Madrid',
         tiempoTramitacion: 348,
-        municipios: [
-            {
-                slug: 'capital',
-                label: 'Madrid Capital',
-                ayudas: [
-                    {
-                        titulo: 'Becas NEAE',
-                        pasos: [
-                            'Solicitud en el centro educativo',
-                            'Informe de evaluación psicopedagógica',
-                            'Resolución de la Consejería de Educación',
-                        ],
-                    },
-                    {
-                        titulo: 'Reconocimiento del grado de discapacidad',
-                        pasos: [
-                            'Solicitud en el CADEP más cercano',
-                            'Valoración médica y social',
-                            'Resolución y tarjeta acreditativa',
-                        ],
-                    },
-                    {
-                        titulo: 'Adaptaciones laborales',
-                        pasos: [
-                            'Solicitud junto a servicio de prevención',
-                            'Informe de adaptación de puesto',
-                            'Aplicación de la medida',
-                        ],
-                    },
+        sedeUrl: 'https://sede.comunidad.madrid/',
+        ayudas: {
+            educacion: {
+                titulo: 'Becas y apoyos NEAE',
+                pasos: [
+                    'Solicitud en el centro educativo',
+                    'Informe de evaluación psicopedagógica',
+                    'Resolución de la Consejería de Educación',
                 ],
             },
-            { slug: 'alcala', label: 'Alcalá de Henares', ayudas: [] },
-            { slug: 'mostoles', label: 'Móstoles', ayudas: [] },
-            { slug: 'getafe', label: 'Getafe', ayudas: [] },
-            { slug: 'alcorcon', label: 'Alcorcón', ayudas: [] },
-            { slug: 'fuenlabrada', label: 'Fuenlabrada', ayudas: [] },
-        ],
+            discapacidad: {
+                titulo: 'Reconocimiento del grado de discapacidad',
+                pasos: [
+                    'Solicitud en el CADEP más cercano',
+                    'Valoración médica y social',
+                    'Resolución y tarjeta acreditativa',
+                ],
+            },
+            laboral: {
+                titulo: 'Adaptaciones laborales',
+                pasos: [
+                    'Solicitud junto a servicio de prevención',
+                    'Informe de adaptación de puesto',
+                    'Aplicación de la medida',
+                ],
+            },
+        },
     },
     cataluna: {
         label: 'Cataluña',
         tiempoTramitacion: 276,
-        provincias: [
-            {
-                slug: 'barcelona',
-                label: 'Barcelona',
-                municipios: [
-                    {
-                        slug: 'ciudad',
-                        label: 'Barcelona (ciudad)',
-                        ayudas: [
-                            {
-                                titulo: 'Beques NESE',
-                                pasos: [
-                                    'Sol·licitud al centre educatiu',
-                                    "Informe de l'EAP",
-                                    "Resolució del Departament d'Educació",
-                                ],
-                            },
-                            {
-                                titulo: 'Reconocimiento del grado de discapacidad',
-                                pasos: [
-                                    'Solicitud en el CAD correspondiente',
-                                    'Valoración médica y social',
-                                    'Resolución y tarjeta acreditativa',
-                                ],
-                            },
-                            {
-                                titulo: 'Adaptaciones laborales',
-                                pasos: [
-                                    'Solicitud junto a servicio de prevención',
-                                    'Informe de adaptación de puesto',
-                                    'Aplicación de la medida',
-                                ],
-                            },
-                        ],
-                    },
-                    { slug: 'hospitalet', label: "L'Hospitalet de Llobregat", ayudas: [] },
-                    { slug: 'badalona', label: 'Badalona', ayudas: [] },
-                    { slug: 'terrassa', label: 'Terrassa', ayudas: [] },
-                    { slug: 'sabadell', label: 'Sabadell', ayudas: [] },
+        sedeUrl: 'https://tramits.gencat.cat/ca/tramits/',
+        ayudas: {
+            educacion: {
+                titulo: 'Beques NESE',
+                pasos: [
+                    'Sol·licitud al centre educatiu',
+                    "Informe de l'EAP",
+                    "Resolució del Departament d'Educació",
                 ],
             },
-            { slug: 'girona', label: 'Girona', municipios: [] },
-            { slug: 'lleida', label: 'Lleida', municipios: [] },
-            { slug: 'tarragona', label: 'Tarragona', municipios: [] },
-        ],
+            discapacidad: {
+                titulo: 'Reconocimiento del grado de discapacidad',
+                pasos: [
+                    'Solicitud en el CAD correspondiente',
+                    'Valoración médica y social',
+                    'Resolución y tarjeta acreditativa',
+                ],
+            },
+            laboral: {
+                titulo: 'Adaptaciones laborales',
+                pasos: [
+                    'Solicitud junto a servicio de prevención',
+                    'Informe de adaptación de puesto',
+                    'Aplicación de la medida',
+                ],
+            },
+        },
     },
     andalucia: {
         label: 'Andalucía',
         tiempoTramitacion: 496,
-        provincias: [
-            { slug: 'almeria', label: 'Almería', municipios: [] },
-            { slug: 'cadiz', label: 'Cádiz', municipios: [] },
-            { slug: 'cordoba', label: 'Córdoba', municipios: [] },
-            { slug: 'granada', label: 'Granada', municipios: [] },
-            { slug: 'huelva', label: 'Huelva', municipios: [] },
-            { slug: 'jaen', label: 'Jaén', municipios: [] },
-            { slug: 'malaga', label: 'Málaga', municipios: [] },
-            {
-                slug: 'sevilla',
-                label: 'Sevilla',
-                municipios: [
-                    {
-                        slug: 'capital',
-                        label: 'Sevilla (capital)',
-                        ayudas: [
-                            {
-                                titulo: 'Becas NEAE',
-                                pasos: [
-                                    'Solicitud en el centro educativo',
-                                    'Informe del Equipo de Orientación',
-                                    'Resolución de la Consejería de Educación',
-                                ],
-                            },
-                            {
-                                titulo: 'Reconocimiento del grado de discapacidad',
-                                pasos: [
-                                    'Solicitud en el Centro de Valoración y Orientación',
-                                    'Valoración médica y social',
-                                    'Resolución y tarjeta acreditativa',
-                                ],
-                            },
-                            {
-                                titulo: 'Adaptaciones laborales',
-                                pasos: [
-                                    'Solicitud junto a servicio de prevención',
-                                    'Informe de adaptación de puesto',
-                                    'Aplicación de la medida',
-                                ],
-                            },
-                        ],
-                    },
-                    { slug: 'dos-hermanas', label: 'Dos Hermanas', ayudas: [] },
-                    { slug: 'alcala-guadaira', label: 'Alcalá de Guadaíra', ayudas: [] },
-                    { slug: 'utrera', label: 'Utrera', ayudas: [] },
+        sedeUrl: 'https://www.juntadeandalucia.es/servicios/sede',
+        ayudas: {
+            educacion: {
+                titulo: 'Becas NEAE',
+                pasos: [
+                    'Solicitud en el centro educativo',
+                    'Informe del Equipo de Orientación',
+                    'Resolución de la Consejería de Educación',
                 ],
             },
-        ],
+            discapacidad: {
+                titulo: 'Reconocimiento del grado de discapacidad',
+                pasos: [
+                    'Solicitud en el Centro de Valoración y Orientación',
+                    'Valoración médica y social',
+                    'Resolución y tarjeta acreditativa',
+                ],
+            },
+            laboral: {
+                titulo: 'Adaptaciones laborales',
+                pasos: [
+                    'Solicitud junto a servicio de prevención',
+                    'Informe de adaptación de puesto',
+                    'Aplicación de la medida',
+                ],
+            },
+        },
     },
 };
