@@ -31,3 +31,7 @@ lighthouse-report*.json
 .env
 .env.*
 !.env.example
+
+# Internal design-process docs, not part of the public deliverable
+image-briefs.md
+image-prompts.md

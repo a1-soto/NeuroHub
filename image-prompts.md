@@ -1,1 +1,0 @@
-/Users/angie_mac/Development/DOCUMENTATION/portafolio/NeuroHub/image-prompts.md
