@@ -72,7 +72,7 @@
     width: 38px;
     height: 38px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.14);
+    background: var(--overlay-white-hover);
     color: var(--color-ink-inverse);
     padding: 10px;
     display: flex;
@@ -88,7 +88,7 @@
 }
 
 .footer__social-icon:hover {
-    background: rgba(255, 255, 255, 0.24);
+    background: var(--overlay-white-hover-strong);
 }
 
 .footer__rights {

@@ -13,11 +13,11 @@
     display: flex;
     align-items: center;
     gap: 4px;
-    background: rgba(18, 105, 202, 0.92);
+    background: var(--overlay-primary-glass);
     backdrop-filter: blur(14px) saturate(160%);
-    border: 1px solid rgba(255, 255, 255, 0.16);
+    border: 1px solid var(--overlay-white-border);
     border-radius: var(--radius-pill);
-    box-shadow: 0 10px 28px -10px rgba(18, 105, 202, 0.55);
+    box-shadow: var(--shadow-nav-glow);
     padding: 6px 8px 6px 20px;
 }
 
@@ -54,7 +54,7 @@
 }
 
 .pillnav__link:hover {
-    background: rgba(255, 255, 255, 0.14);
+    background: var(--overlay-white-hover);
 }
 
 .pillnav__link.is-active {
@@ -69,7 +69,7 @@
     gap: 2px;
     margin-left: 6px;
     padding-left: 10px;
-    border-left: 1px solid rgba(255, 255, 255, 0.22);
+    border-left: 1px solid var(--overlay-white-medium);
 }
 
 .pillnav__actions button {
@@ -79,14 +79,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--text-on-blue-muted);
     transition:
         background var(--motion),
         color var(--motion);
 }
 
 .pillnav__actions button:hover {
-    background: rgba(255, 255, 255, 0.16);
+    background: var(--overlay-white-border);
     color: var(--color-white);
 }
 
@@ -107,7 +107,7 @@
     border-radius: 50%;
     align-items: center;
     justify-content: center;
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--text-on-blue-muted);
     margin-left: 4px;
     transition:
         background var(--motion),
@@ -115,7 +115,7 @@
 }
 
 .pillnav__hamburger:hover {
-    background: rgba(255, 255, 255, 0.16);
+    background: var(--overlay-white-border);
     color: var(--color-white);
 }
 
@@ -129,11 +129,14 @@
     top: 78px;
     left: 16px;
     right: 16px;
-    background: rgba(18, 105, 202, 0.92);
+    max-height: calc(100dvh - 94px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: var(--overlay-primary-glass);
     backdrop-filter: blur(14px) saturate(160%);
-    border: 1px solid rgba(255, 255, 255, 0.16);
+    border: 1px solid var(--overlay-white-border);
     border-radius: 22px;
-    box-shadow: 0 10px 28px -10px rgba(18, 105, 202, 0.55);
+    box-shadow: var(--shadow-nav-glow);
     padding: 10px;
     z-index: 99;
     flex-direction: column;
@@ -162,7 +165,7 @@
 }
 
 .mobile-drawer__link:hover {
-    background: rgba(255, 255, 255, 0.14);
+    background: var(--overlay-white-hover);
 }
 
 .mobile-drawer__link.is-active {
@@ -192,7 +195,7 @@
 }
 
 .mobile-drawer__sublink:hover {
-    background: rgba(255, 255, 255, 0.14);
+    background: var(--overlay-white-hover);
     opacity: 1;
 }
 

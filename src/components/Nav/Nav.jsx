@@ -55,6 +55,13 @@ function Nav() {
         setMobileMenuOpen(false);
     }, [location]);
 
+    useEffect(() => {
+        document.body.style.overflow = mobileMenuOpen ? 'hidden' : '';
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [mobileMenuOpen]);
+
     function toggleBajoEstimulo() {
         setBajoEstimulo(!bajoEstimulo);
     }
