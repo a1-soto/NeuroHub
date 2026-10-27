@@ -1,5 +1,7 @@
+import ComingSoon from '../../components/ComingSoon/ComingSoon';
+
 function BlogPage() {
-    return null;
+    return <ComingSoon title="Blog" />;
 }
 
 export default BlogPage;

@@ -1,5 +1,7 @@
+import ComingSoon from '../../components/ComingSoon/ComingSoon';
+
 function AvisoLegalPage() {
-    return null;
+    return <ComingSoon title="Aviso Legal" />;
 }
 
 export default AvisoLegalPage;

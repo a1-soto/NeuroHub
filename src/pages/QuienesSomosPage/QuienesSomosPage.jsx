@@ -1,5 +1,7 @@
+import ComingSoon from '../../components/ComingSoon/ComingSoon';
+
 function QuienesSomosPage() {
-    return null;
+    return <ComingSoon title="¿Quiénes somos?" />;
 }
 
 export default QuienesSomosPage;

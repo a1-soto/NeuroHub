@@ -1,5 +1,7 @@
+import ComingSoon from '../../components/ComingSoon/ComingSoon';
+
 function CookiesPage() {
-    return null;
+    return <ComingSoon title="Política de Cookies" />;
 }
 
 export default CookiesPage;

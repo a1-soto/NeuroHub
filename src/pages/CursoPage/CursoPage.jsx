@@ -1,5 +1,7 @@
+import ComingSoon from '../../components/ComingSoon/ComingSoon';
+
 function CursoPage() {
-    return null;
+    return <ComingSoon title="Curso" />;
 }
 
 export default CursoPage;

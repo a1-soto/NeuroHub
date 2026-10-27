@@ -1,5 +1,7 @@
+import ComingSoon from '../../components/ComingSoon/ComingSoon';
+
 function NoticiasPage() {
-    return null;
+    return <ComingSoon title="Noticias" />;
 }
 
 export default NoticiasPage;

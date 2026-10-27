@@ -1,5 +1,7 @@
+import ComingSoon from '../../components/ComingSoon/ComingSoon';
+
 function ContactoPage() {
-    return null;
+    return <ComingSoon title="Contacto" />;
 }
 
 export default ContactoPage;
