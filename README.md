@@ -2,13 +2,15 @@
 
 A resource hub for the neurodivergent community — accessible news, curated resources, a professional directory, and region-by-region guidance on public aid, built with accessibility as a first-class feature rather than an afterthought.
 
+**Live demo:** https://neurohub-tan.vercel.app
+
 ## Origin
 
 NeuroHub started as a WordPress site built for a real client as part of a non-evaluative practice project — branded "neurored.org" internally, but delivered only as a demo and never deployed publicly; that domain isn't live today. This repository is an independent rebuild in React, developed for portfolio purposes — the original project set the initial direction, but scope, design, and technical decisions throughout this rebuild are the author's own, including several deliberate improvements over the original.
 
 ## Live Demo
 
-Not deployed yet — the project currently runs locally only. This section will be updated once a production deploy exists.
+Deployed on Vercel: https://neurohub-tan.vercel.app
 
 ## Features
 
@@ -53,4 +55,4 @@ npm test -- --run       # Vitest, single run
 
 ## Status
 
-Actively in development. Nav, Footer, and the accessibility toolbar are shared and functional across the whole site; Inicio (home), Recursos, Profesionales, and Ayudas are built and tested. The remaining pages (Noticias, Curso, Blog, Contacto, Donación, Testimonios, Quiénes Somos, and the legal pages) are scaffolded but not yet built out.
+Actively in development. Nav, Footer, and the accessibility toolbar are shared and functional across the whole site; Inicio (home), Recursos, Profesionales, and Ayudas are built and tested. The remaining pages (Noticias, Curso, Blog, Contacto, Donación, Testimonios, Quiénes Somos, and the legal pages) are routed and show a "Coming soon" placeholder until they're built out.
