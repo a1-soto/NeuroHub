@@ -6,7 +6,7 @@ A resource hub for the neurodivergent community — accessible news, curated res
 
 ## Origin
 
-NeuroHub started as a WordPress site built for a real client as part of a non-evaluative practice project — branded "neurored.org" internally, but delivered only as a demo and never deployed publicly; that domain isn't live today. This repository is an independent rebuild in React, developed for portfolio purposes — the original project set the initial direction, but scope, design, and technical decisions throughout this rebuild are the author's own, including several deliberate improvements over the original.
+NeuroHub started in 2026 as a WordPress site built for a client during the author's time as a Junior Front-End Developer at Templonet L.S. in Madrid, styled with custom CSS on top of the theme and reusable content blocks. The client later rebuilt the site on their own, so this repository is an independent rebuild in React, developed for portfolio purposes — the original project set the initial direction, but scope, design, and technical decisions throughout this rebuild are the author's own, including several deliberate improvements over the original.
 
 ## Live Demo
 
